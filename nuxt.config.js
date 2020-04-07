@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 export default {
   mode: 'universal',
@@ -40,7 +40,8 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
   /*
    ** Axios module configuration
@@ -69,6 +70,12 @@ export default {
     }
   },
   /*
+   ** markdownit module configuration
+   */
+  markdownit: {
+    injected: true
+  },
+  /*
    ** Build configuration
    */
   build: {
@@ -76,5 +83,19 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  // create dynamic routes for static site
+  generate: {
+    routes() {
+      const fs = require('fs');
+      const path = require('path');
+      return fs.readdirSync('./assets/content/blog').map((file) => {
+        return {
+          route: `/blog/${path.parse(file).name}`, // Return the slug
+          payload: require(`./assets/content/blog/${file}`)
+        };
+      });
+    }
   }
-}
+};

@@ -1,10 +1,9 @@
 <template>
   <article>
     <h1>{{ blogPost.title }}</h1>
-    <div>{{ blogPost.body }}</div>
+    <div v-html="$md.render(blogPost.body)" />
   </article>
 </template>
-
 <script>
 export default {
   async asyncData({ params, payload }) {
