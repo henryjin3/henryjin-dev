@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors';
+import FMMode from 'frontmatter-markdown-loader/mode';
+import path from 'path';
 
 export default {
   mode: 'universal',
@@ -40,8 +42,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/axios'
   ],
   /*
    ** Axios module configuration
@@ -70,26 +71,28 @@ export default {
     }
   },
   /*
-   ** markdownit module configuration
-   */
-  markdownit: {
-    injected: true
-  },
-  /*
    ** Build configuration
    */
   build: {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      // add markdownit-loader
+      config.module.rules.push({
+        test: /\.md/,
+        loader: 'frontmatter-markdown-loader'
+        // options: {
+        //   mode: [FMMode.VUE_COMPONENT]
+        // }
+      });
+    }
   },
 
   // create dynamic routes for static site
   generate: {
     routes() {
       const fs = require('fs');
-      const path = require('path');
       return fs.readdirSync('./assets/content/writing').map((file) => {
         return {
           route: `/writing/${path.parse(file).name}`, // Return the slug

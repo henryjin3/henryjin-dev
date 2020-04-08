@@ -6,7 +6,7 @@ public_folder: '/images'
 collections:
   - name: 'writing'
     label: 'Writing'
-    format: 'json'
+    format: 'frontmatter'
     folder: 'assets/content/writing'
     path: '{{slug}}/{{slug}}'
     media_folder: ''

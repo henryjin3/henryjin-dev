@@ -13,8 +13,9 @@ export const actions = {
     const files = await require.context(
       '~/assets/content/writing/',
       false,
-      /\.json$/
+      /\.md$/
     );
+
     const blogPosts = files.keys().map((key) => {
       const res = files(key);
       res.slug = key.slice(2, -5);
