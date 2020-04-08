@@ -1,9 +1,9 @@
 <template>
   <v-tabs grow color="orange base">
-    <v-tab><nuxt-link to="/">HJ</nuxt-link></v-tab>
+    <v-tab to="/">HJ</v-tab>
     <v-spacer />
-    <v-tab><nuxt-link to="/about">about</nuxt-link></v-tab>
-    <v-tab><nuxt-link to="/writing">writing</nuxt-link></v-tab>
+    <v-tab to="/about">about</v-tab>
+    <v-tab to="/writing">writing</v-tab>
   </v-tabs>
 </template>
 
@@ -12,9 +12,3 @@ export default {
   name: 'Navbar'
 };
 </script>
-
-<style scoped>
-a {
-  color: grey;
-}
-</style>
