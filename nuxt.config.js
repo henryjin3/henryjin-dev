@@ -78,13 +78,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      // add markdownit-loader
       config.module.rules.push({
         test: /\.md/,
         loader: 'frontmatter-markdown-loader'
-        // options: {
-        //   mode: [FMMode.VUE_COMPONENT]
-        // }
       });
     }
   },
@@ -95,8 +91,7 @@ export default {
       const fs = require('fs');
       return fs.readdirSync('./assets/content/writing').map((file) => {
         return {
-          route: `/writing/${path.parse(file).name}`, // Return the slug
-          payload: require(`./assets/content/writing/${file}`)
+          route: `/writing/${path.parse(file).name}` // shorten the route
         };
       });
     }
