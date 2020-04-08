@@ -1,5 +1,5 @@
 <template>
-  <v-tabs grow>
+  <v-tabs grow color="orange base">
     <v-tab><nuxt-link to="/">HJ</nuxt-link></v-tab>
     <v-spacer />
     <v-tab><nuxt-link to="/about">about</nuxt-link></v-tab>
@@ -13,4 +13,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+a {
+  color: grey;
+}
+</style>
