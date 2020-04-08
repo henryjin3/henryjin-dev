@@ -8,8 +8,10 @@ collections:
     label: 'Writing'
     format: 'json'
     folder: 'assets/content/writing'
+    path: '{{slug}}/{{slug}}'
+    media_folder: ''
+    public_folder: ''
     create: true
-    slug: '{{slug}}'
     editor:
       preview: false
     fields:
