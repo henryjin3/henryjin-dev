@@ -22,7 +22,7 @@ export default {
           to: '/'
         },
         {
-          icon: '',
+          icon: 'mdi-apps',
           title: 'Inspire',
           to: '/inspire'
         }

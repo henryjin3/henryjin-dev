@@ -10,7 +10,12 @@
       </v-container>
     </v-content>
     <v-footer>
-      <Navbar />
+      <p class="footer__item">
+        <strong>&copy;2020</strong><br />
+        <a class="p-name u-url" rel="me" href="henryjin.dev">
+          Henry Jin
+        </a>
+      </p>
     </v-footer>
   </v-app>
 </template>
