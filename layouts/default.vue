@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-app-bar fixed app>
-      <Nav />
+      <Navbar />
     </v-app-bar>
 
     <v-content>
@@ -10,17 +10,17 @@
       </v-container>
     </v-content>
     <v-footer>
-      <Nav />
+      <Navbar />
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import Nav from './nav';
+import Navbar from './navbar';
 
 export default {
   components: {
-    Nav
+    Navbar
   }
 };
 </script>

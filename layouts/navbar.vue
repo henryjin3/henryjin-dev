@@ -5,14 +5,14 @@
     <v-tab>Writing</v-tab>
     <v-spacer />
     <v-btn icon v-for="(item, i) in items" :key="i" :to="item.to">
-      <v-icon>{{ item.icon }}</v-icon>
+      <v-icon> {{ item.icon }}</v-icon>
     </v-btn>
   </v-tabs>
 </template>
 
 <script>
 export default {
-  name: 'nav',
+  name: 'navbar',
   data() {
     return {
       items: [
@@ -22,7 +22,7 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: '',
           title: 'Inspire',
           to: '/inspire'
         }
