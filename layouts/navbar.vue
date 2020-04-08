@@ -1,10 +1,10 @@
 <template>
   <v-tabs grow>
-    <v-tab>HJ</v-tab>
-    <v-tab>About</v-tab>
-    <v-tab>Writing</v-tab>
+    <v-tab><nuxt-link to="/">HJ</nuxt-link></v-tab>
+    <v-tab><nuxt-link to="/about">about</nuxt-link></v-tab>
+    <v-tab><nuxt-link to="/writing">writing</nuxt-link></v-tab>
     <v-spacer />
-    <v-btn icon v-for="(item, i) in items" :key="i" :to="item.to">
+    <v-btn v-for="(item, i) in items" :key="i" icon :to="item.to">
       <v-icon> {{ item.icon }}</v-icon>
     </v-btn>
   </v-tabs>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'navbar',
+  name: 'Navbar',
   data() {
     return {
       items: [
@@ -31,3 +31,5 @@ export default {
   }
 };
 </script>
+
+<style scoped></style>
