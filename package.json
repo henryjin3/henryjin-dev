@@ -1,7 +1,7 @@
 {
   "name": "henryjin-dev",
-  "version": "1.0.0",
-  "description": "My personal site",
+  "version": "0.1.0",
+  "description": "My personal site, based on the JAMstack. https://henryjin.dev",
   "author": "Henry",
   "private": true,
   "scripts": {
