@@ -1,22 +1,14 @@
-# henryjin-dev
+# henryjin.dev
 
-> My personal site
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a209a094-5987-4145-9f0a-3faf5587f1ec/deploy-status)](https://app.netlify.com/sites/henryjin-dev/deploys)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-## Build Setup
+Source code for [henryjin.dev](https://henryjin.dev), my personal website based on the JAMstack.
 
-```bash
-# install dependencies
-$ npm install
+This version is built with [Nuxt.js](https://nuxtjs.org/) and [Netlify CMS](https://www.netlifycms.org/).
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Features
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+- Static Files
+- Simple routing
+- Focus on Speed and Accessibility
