@@ -2,7 +2,8 @@
   <v-footer>
     <v-row no-gutters align="center">
       <v-col class="pa-2">
-        <strong>&copy;2020</strong><br />
+        <strong>&copy;{{ new Date().getFullYear() }}</strong
+        ><br />
         <a href="https://henryjin.dev">
           Henry Jin
         </a>
