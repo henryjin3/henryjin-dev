@@ -22,10 +22,12 @@ export default {
       /\.md$/
     );
     const posts = await context.keys().map((key) => {
-      const pathStr = key.replace('.md', '').replace('./', '');
       return {
         ...context(key),
-        path: `/writing/${pathStr.substring(0, pathStr.lastIndexOf('/'))}`
+        path: `/writing/${key.substring(
+          key.lastIndexOf('/') + 1,
+          key.lastIndexOf('.md')
+        )}`
       };
     });
     return { posts: posts.reverse() };

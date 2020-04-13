@@ -43,7 +43,7 @@ Let's get the prerequisites out of the way.
 1. Eventually you'll want a domain name. You can sign up for one at any number of websites, although I prefer [DNSimple](https://dnsimple.com/r/422cb345aabf4e) for their simple interface, transparent pricing, and solid support.
 2. If you're on Windows, you'll need the windows-build-tools before you can run the Nuxt.js setup. You can do this by running this command (it takes a while):
 
-```Powershell
+```powershell
 npm install --global --production windows-build-tools
 ```
 
@@ -51,7 +51,7 @@ npm install --global --production windows-build-tools
 
 First, let's create our project. Run this with your project name of choice.
 
-```Cmd
+```shell
 npx create-nuxt-app <project-name>
 ```
 
@@ -61,7 +61,7 @@ Work through the options. You can see what I selected below, but feel free to mo
 
 Once Nuxt finishes creating your project, you'll have a folder with lots of folders and files in it. Navigate to this folder and make sure the following command works:
 
-```Cmd
+```shell
 npm run generate
 ```
 
@@ -70,7 +70,7 @@ This runs the static site generator of Nuxt, which takes our Vue files and turns
 ## Production already?
 
 In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and
-publish directory as 'dist'. It should look like this:
+publish directory as `dist`. It should look like this:
 
 ![netlify-new-site](netlify-new-site.png)
 
