@@ -3,6 +3,7 @@ title: Making a next-level website with Nuxt.js/Vue, Netlify CMS, and Github - P
 date: 2020-04-13T00:00:00.000Z
 description: Use the JAMstack to make a static site which requires only a domain.
 ---
+
 Welcome to my site! If you like it, you can easily make one of your own by following the instructions below. And if you don't like it, make a better version and send me the link! I'd love to improve.
 
 ## Why use...
@@ -50,7 +51,7 @@ npm install --global --production windows-build-tools
 
 First, let's create our project. Run this with your project name of choice.
 
-```Cmd
+```shell
 npx create-nuxt-app <project-name>
 ```
 
@@ -60,7 +61,7 @@ Work through the options. You can see what I selected below, but feel free to mo
 
 Once Nuxt finishes creating your project, you'll have a folder with lots of folders and files in it. Navigate to this folder and make sure the following command works:
 
-```Cmd
+```shell
 npm run generate
 ```
 
@@ -68,7 +69,8 @@ This runs the static site generator of Nuxt, which takes our Vue files and turns
 
 ## Production already?
 
-In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and publish directory as 'dist'. It should look like this:
+In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and
+publish directory as `dist`. It should look like this:
 
 ![netlify-new-site](netlify-new-site.png)
 
