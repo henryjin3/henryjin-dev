@@ -1,12 +1,13 @@
 <template>
   <v-container fluid>
-    <article>
+    <article class="article">
       <h1>{{ title }}</h1>
       <!-- eslint-disable-next-line -->
       <div class="content" v-html="post" />
     </article>
   </v-container>
 </template>
+
 <script>
 export default {
   async asyncData({ params }) {
@@ -18,3 +19,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.content {
+  color: #a7a9be;
+}
+</style>
