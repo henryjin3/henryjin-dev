@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <article class="article">
+    <article>
       <h1>{{ title }}</h1>
       <!-- eslint-disable-next-line -->
       <div class="content" v-html="post" />
