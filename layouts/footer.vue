@@ -10,6 +10,8 @@
       </v-col>
       <v-col class="pa-2">
         <strong> Social</strong><br />
+        <a href="https://www.linkedin.com/in/henry-jin/">LinkedIn</a>
+        /
         <a href="https://github.com/henryjin3">Github</a>
       </v-col>
       <v-col class="pa-2">
