@@ -1,9 +1,8 @@
 ---
 title: Making a next-level website with Nuxt.js/Vue, Netlify CMS, and Github - Part 1
+date: 2020-04-13T00:00:00.000Z
 description: Use the JAMstack to make a static site which requires only a domain.
-date: 2020-04-13
 ---
-
 Welcome to my site! If you like it, you can easily make one of your own by following the instructions below. And if you don't like it, make a better version and send me the link! I'd love to improve.
 
 ## Why use...
@@ -43,7 +42,7 @@ Let's get the prerequisites out of the way.
 1. Eventually you'll want a domain name. You can sign up for one at any number of websites, although I prefer [DNSimple](https://dnsimple.com/r/422cb345aabf4e) for their simple interface, transparent pricing, and solid support.
 2. If you're on Windows, you'll need the windows-build-tools before you can run the Nuxt.js setup. You can do this by running this command (it takes a while):
 
-```Powershell
+```powershell
 npm install --global --production windows-build-tools
 ```
 
@@ -69,10 +68,8 @@ This runs the static site generator of Nuxt, which takes our Vue files and turns
 
 ## Production already?
 
-In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and
-publish directory as 'dist'. It should look like this:
+In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and publish directory as 'dist'. It should look like this:
 
 ![netlify-new-site](netlify-new-site.png)
 
-And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at
-`<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
+And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
