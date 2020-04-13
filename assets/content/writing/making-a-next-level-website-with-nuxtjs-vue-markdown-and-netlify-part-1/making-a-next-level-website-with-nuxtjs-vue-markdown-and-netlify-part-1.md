@@ -1,5 +1,5 @@
 ---
-title: Making a next-level website with Nuxt.js/Vue, Netlify CMS, and Github - Part 1
+title: Making a next-level website with Nuxt.js/Vue, Markdown, and Netlify - Part 1
 date: 2020-04-13T00:00:00.000Z
 description: Use the JAMstack to make a static site which requires only a domain.
 ---
@@ -18,11 +18,11 @@ Plus as a side benefit, a setup like this one has no ongoing costs other than th
 
 Nuxt is a framework that sits on top of [Vue.js](https://vuejs.org/), [Vue Router](https://router.vuejs.org/), and [Vuex](https://vuex.vuejs.org/) and provides server-side rendering (SSR) or in our case, static site generation. It wraps the entire Vue package into an easy to use setup perfect for content-based websites. If you're not familiar with the Vue.js stack, check out the websites linked above for more information.
 
-### Netlify CMS?
+### Where's our database?
 
-[Netlify CMS](https://www.netlifycms.org/) provides a simple, Git-based database solution for our content-based website. Instead of spinning up a database and making sure to take snapshots, backups, etc., Github becomes your database and source of truth. Publish a new post? Just merge a pull request and you're good to go.
+Instead of spinning up a database and making sure to take snapshots, backups, etc., Github becomes your database and source of truth. Publish a new post? Just merge a pull request and you're good to go.
 
-Additionally, Netlify CMS allows for the use of Markdown to write our posts, meaning that if we ever want to switch out our CMS, we can do so without too much effort.
+Additionally, we'll eventually use Markdown to write our posts, meaning that if we ever want to switch out our CMS, we can do so without too much effort.
 
 ### Netlify?
 
@@ -57,7 +57,7 @@ npx create-nuxt-app <project-name>
 
 Work through the options. You can see what I selected below, but feel free to modify the options as you see fit. You can always add or remove packages later.
 
-![nuxt-setup](nuxt-setup.png)
+![nuxt-setup](/media/nuxt-setup.png)
 
 Once Nuxt finishes creating your project, you'll have a folder with lots of folders and files in it. Navigate to this folder and make sure the following command works:
 
@@ -72,6 +72,6 @@ This runs the static site generator of Nuxt, which takes our Vue files and turns
 In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and
 publish directory as `dist`. It should look like this:
 
-![netlify-new-site](netlify-new-site.png)
+![netlify-new-site](/media/netlify-new-site.png)
 
 And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
