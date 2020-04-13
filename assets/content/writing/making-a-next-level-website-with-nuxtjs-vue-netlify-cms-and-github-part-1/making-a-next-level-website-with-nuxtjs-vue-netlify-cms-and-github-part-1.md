@@ -1,7 +1,7 @@
 ---
 title: Making a next-level website with Nuxt.js/Vue, Netlify CMS, and Github - Part 1
+date: 2020-04-13T00:00:00.000Z
 description: Use the JAMstack to make a static site which requires only a domain.
-date: 2020-04-13
 ---
 
 Welcome to my site! If you like it, you can easily make one of your own by following the instructions below. And if you don't like it, make a better version and send me the link! I'd love to improve.
@@ -74,5 +74,4 @@ publish directory as `dist`. It should look like this:
 
 ![netlify-new-site](netlify-new-site.png)
 
-And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at
-`<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
+And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
