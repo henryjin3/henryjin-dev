@@ -1,25 +1,20 @@
 <template>
-  <v-container fluid align-center>
-    <v-row dense>
-      <v-col
-        v-for="post in posts"
-        :key="post.attributes.title"
-        cols="12"
-        md="6"
-      >
-        <v-card height="100%">
-          <v-card-title>
+  <div>
+    <ol>
+      <li v-for="post in posts" :key="post.attributes.title" cols="12" md="6">
+        <div height="100%">
+          <div>
             <nuxt-link :to="post.path">
               {{ post.attributes.title }}
             </nuxt-link>
-          </v-card-title>
-          <v-card-text>
+          </div>
+          <div>
             {{ post.attributes.description }}
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>
@@ -49,9 +44,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.v-card__text,
-.v-card__title {
-  word-break: normal; /* maybe !important  */
-}
-</style>
+<style scoped></style>

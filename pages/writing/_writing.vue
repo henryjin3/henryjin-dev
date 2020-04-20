@@ -1,11 +1,9 @@
 <template>
-  <v-container fluid>
-    <article>
-      <h1>{{ title }}</h1>
-      <!-- eslint-disable-next-line -->
-      <div class="content" v-html="post" />
-    </article>
-  </v-container>
+  <article>
+    <h1>{{ title }}</h1>
+    <!-- eslint-disable-next-line -->
+    <div class="content" v-html="post" />
+  </article>
 </template>
 
 <script>
@@ -20,8 +18,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .content {
   color: #a7a9be;
+}
+h2 {
+  color: red;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar fixed app>
-    <v-tabs color="orange base">
-      <v-tab class="brand-tab" to="/">
+  <header>
+    <div color="orange base">
+      <a class="brand-tab" href="/">
         <div class="brand">
           <svg
             viewBox="0 0 512 512"
@@ -28,12 +28,12 @@
             </defs>
           </svg>
         </div>
-      </v-tab>
+      </a>
       <v-spacer />
-      <v-tab to="/about">about</v-tab>
-      <v-tab to="/writing">writing</v-tab>
-    </v-tabs>
-  </v-app-bar>
+      <a href="/about">about</a>
+      <a href="/writing">writing</a>
+    </div>
+  </header>
 </template>
 
 <script>

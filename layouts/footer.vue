@@ -1,26 +1,26 @@
 <template>
-  <v-footer>
-    <v-row no-gutters align="center">
-      <v-col class="pa-2">
+  <footer>
+    <div no-gutters align="center">
+      <p class="pa-2">
         <strong>&copy;{{ new Date().getFullYear() }}</strong
         ><br />
         <a href="https://henryjin.dev">
           Henry Jin
         </a>
-      </v-col>
-      <v-col class="pa-2">
+      </p>
+      <p class="pa-2">
         <strong> Social</strong><br />
         <a href="https://www.linkedin.com/in/henry-jin/">LinkedIn</a>
         /
         <a href="https://github.com/henryjin3">Github</a>
-      </v-col>
-      <v-col class="pa-2">
+      </p>
+      <p class="pa-2">
         <a href="https://github.com/henryjin3/henryjin-dev">
           <v-icon>{{ githubIcon }}</v-icon>
         </a>
-      </v-col>
-    </v-row>
-  </v-footer>
+      </p>
+    </div>
+  </footer>
 </template>
 
 <script>

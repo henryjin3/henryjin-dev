@@ -1,12 +1,10 @@
 <template>
-  <v-app dark>
+  <div id="app">
     <Navbar />
 
-    <v-content>
-      <nuxt />
-    </v-content>
+    <nuxt />
     <Footer />
-  </v-app>
+  </div>
 </template>
 
 <script>

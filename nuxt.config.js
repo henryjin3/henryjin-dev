@@ -1,4 +1,3 @@
-import colors from 'vuetify/es5/util/colors';
 import path from 'path';
 
 export default {
@@ -29,35 +28,11 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify'],
+  buildModules: [],
   /*
    ** Nuxt.js modules
    */
   modules: [],
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
-  vuetify: {
-    icons: {
-      iconfont: 'mdiSvg'
-    },
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          // primary: colors.blue.darken2,
-          // accent: colors.orange.darken3,
-          // secondary: colors.amber.darken3,
-          // info: colors.teal.lighten1,
-          // warning: colors.amber.base,
-          // error: colors.deepOrange.accent4,
-          // success: colors.green.accent3
-          anchor: colors.orange.base
-        }
-      }
-    }
-  },
   /*
    ** Build configuration
    */
