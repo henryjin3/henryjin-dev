@@ -1,0 +1,21 @@
+//--------------------
+// SCSS MIXINS
+//--------------------
+
+@mixin mq($name) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
