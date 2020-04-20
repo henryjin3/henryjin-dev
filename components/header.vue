@@ -29,7 +29,6 @@
           </svg>
         </div>
       </a>
-      <v-spacer />
       <NavBar />
     </div>
   </header>

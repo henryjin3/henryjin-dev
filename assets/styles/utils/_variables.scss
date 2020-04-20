@@ -33,14 +33,14 @@ $brand-cyan: #43a9a3;
 
 // Color Mappings
 
-$bg-color: #fff;
-$bg-color-semitransparent: rgba(255, 255, 255, 0.85);
-$bg-color-secondary: $gray-lightest;
-$text-color: $gray-darkest;
-$text-color-secondary: $gray;
-$border-color: $gray-light;
-$brand-color-primary: $brand-red;
-$brand-color-primary-offset: darken($brand-red, 6%);
+$bg-color: #1d1f21;
+$bg-color-semitransparent: rgba(33, 33, 33, 0.75);
+$bg-color-secondary: #252526;
+$text-color: #ffffff;
+$text-color-secondary: #818a91;
+$border-color: #2d2d2d;
+$brand-color-primary: #{lighten($brand-red, 6%)};
+$brand-color-primary-offset: darken($brand-red, 2%);
 $brand-color-secondary: $brand-cyan;
 $header-border-color: $gray-darkest;
 

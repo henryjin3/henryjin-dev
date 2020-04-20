@@ -1,23 +1,11 @@
 <template>
   <nav class="nav">
-    <button
-      class="nav__togglebtn"
-      aria-expanded="false"
-      aria-controls="nav-menu"
-      aria-label="toggle menu"
-    >
-      <span class="menuicon">
-        <span class="menuicon__bar"></span>
-        <span class="menuicon__bar"></span>
-        <span class="menuicon__bar"></span>
-        <span class="menuicon__bar"></span>
-      </span>
-    </button>
-    {{ diameter }}
     <div class="nav__content">
       <ul class="nav__menu js-nav-menu" id="nav-menu">
         <li v-for="link in links" :key="link.name" class="nav__item">
-          <a :href="link.href" class="nav__link">{{ link.name }}</a>
+          <nuxt-link :to="link.href" class="nav__link">
+            {{ link.name }}
+          </nuxt-link>
         </li>
       </ul>
     </div>
@@ -39,37 +27,8 @@ export default {
       links: [
         { href: '/about', name: 'about' },
         { href: '/writing', name: 'writing' }
-      ],
-      diameter: 0
+      ]
     };
-  },
-
-  mounted() {
-    window.addEventListener('resize', this.setScreenDiameter);
-  },
-  methods: {
-    setScreenDiameter() {
-      const screen = this.getWindowDimensions();
-      const diameter = Math.sqrt(screen.height ** 2 + screen.width ** 2);
-      document.documentElement.style.setProperty('--diameter', `${diameter}px`);
-      this.diameter = diameter;
-      console.log(diameter);
-    },
-
-    getWindowDimensions() {
-      const w = window;
-      const d = document;
-      const e = d.documentElement;
-      const g = d.getElementsByTagName('body')[0];
-
-      const x = w.innerWidth || e.clientWidth || g.clientWidth;
-      const y = w.innerHeight || e.clientHeight || g.clientHeight;
-
-      return {
-        width: x,
-        height: y
-      };
-    }
   }
 };
 </script>
@@ -138,63 +97,6 @@ export default {
     }
   }
 
-  // Nav Item Number
-  &__num {
-    display: block;
-    margin-right: 0.375rem;
-    font-weight: 700;
-  }
-
-  // Toggle Button
-  &__togglebtn {
-    display: none;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-
-    position: fixed;
-    z-index: z('nav') + 1;
-    right: 5%;
-
-    border: 0;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--bg-color-semitransparent);
-  }
-
-  // Darkmode Button
-  &__darkmodebtn {
-    @include button-reset;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 1.75;
-    height: 1.75;
-    margin-left: 2rem;
-    color: var(--text-color);
-
-    @supports (color: var(--fake-var)) {
-      display: flex;
-    }
-
-    .icon--sun {
-      display: none;
-      transform: scale(1.1);
-    }
-    .icon--moon {
-      display: block;
-    }
-
-    .theme-dark & {
-      .icon--sun {
-        display: block;
-      }
-      .icon--moon {
-        display: none;
-      }
-    }
-  }
-
   // ==================================
   // MOBILE VERSION (TABLET AND DOWN)
   // ==================================
@@ -253,167 +155,6 @@ export default {
 
       @include hover-focus {
         color: #fff;
-      }
-    }
-
-    &__num {
-      margin-right: 0.75rem;
-      font-family: $font-family-base;
-      font-weight: 300;
-      font-size: 0.5em;
-      color: $gray;
-    }
-
-    &__togglebtn {
-      display: flex;
-      top: 2.25rem;
-    }
-
-    &__darkmodebtn {
-      margin-left: 0;
-      margin-right: 5rem;
-    }
-  }
-
-  // ==================================
-  // MOBILE VERSION (PHONE ONLY)
-  // ==================================
-
-  @include mq-down(md) {
-    &__togglebtn {
-      top: 1.15rem;
-    }
-  }
-}
-
-// ==================================
-// NAV OPEN STATE (MOBILE ONLY)
-// ==================================
-
-.nav--open {
-  @include mq-down(lg) {
-    .nav__content {
-      display: flex;
-    }
-
-    .nav__menu--visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .nav__togglebtn {
-      color: #fff;
-      background-color: transparent;
-    }
-
-    .nav__bg {
-      visibility: visible;
-    }
-
-    .nav__bg__circle {
-      transform: scale(1);
-    }
-  }
-}
-
-// ==================================
-// NAV BACKGROUND ANIMATION
-// ==================================
-
-.nav__bg {
-  position: fixed;
-  z-index: z('nav') - 1;
-  top: 25px;
-  right: 5%;
-  height: 4px;
-  width: 4px;
-  transform: translateX(-22px) translateY(22px);
-  pointer-events: none;
-  visibility: hidden;
-
-  &__circle {
-    display: block;
-    width: 300vmax;
-    height: 300vmax;
-    width: calc(var(--diameter) * 2);
-    height: calc(var(--diameter) * 2);
-
-    position: absolute;
-    top: -150vmax;
-    left: -150vmax;
-    top: calc(var(--diameter) * -1);
-    left: calc(var(--diameter) * -1);
-
-    border-radius: 50%;
-    backface-visibility: hidden;
-    background-color: darken($gray-darkest, 5%);
-
-    transform: scale(0);
-    transform-origin: 50% 50%;
-    transition: transform 0.4s cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    will-change: transform;
-  }
-
-  @include mq(md) {
-    top: 42px;
-  }
-  @include mq(lg) {
-    display: none;
-  }
-}
-
-// ==================================
-// NAV MENU BUTTON ICON
-// ==================================
-
-.menuicon {
-  display: block;
-  width: 24px;
-  height: 16px;
-  position: relative;
-  transform: rotate(0deg);
-  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  cursor: pointer;
-  margin: 0 auto;
-
-  &__bar {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background-color: currentColor;
-    left: 0;
-    transform: rotate(0deg);
-    transition: transform 0.25s ease-in-out;
-
-    &:nth-child(1) {
-      top: 0px;
-    }
-    &:nth-child(2),
-    &:nth-child(3) {
-      top: 50%;
-    }
-    &:nth-child(4) {
-      top: 100%;
-    }
-  }
-
-  // Animate to "X" when Nav is open
-  .nav--open & {
-    transform: rotate(270deg);
-
-    .menuicon__bar {
-      &:nth-child(1),
-      &:nth-child(4) {
-        width: 0;
-        top: 50%;
-        left: 50%;
-      }
-      &:nth-child(2) {
-        transform: rotate(45deg);
-      }
-      &:nth-child(3) {
-        transform: rotate(-45deg);
       }
     }
   }
