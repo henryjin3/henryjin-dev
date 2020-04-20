@@ -1,7 +1,7 @@
 ---
 title: My First Steps toward Machine Learning
 date: 2020-04-20T00:00:00.000Z
-description: Just getting my feet wet
+description: I'm just getting my feet wet, but here's a few thoughts anyways.
 ---
 
 Over the last month or so, I've been working through Andrew Ng's famous introductory class on [Machine Learning](https://www.coursera.org/learn/machine-learning). I've completed all the programming assignments in the class and just have to finish the last two weeks of lectures and quizzes. I've learned a lot through the process, and I thought I'd share from a developer's perspective what this class brings to the table.

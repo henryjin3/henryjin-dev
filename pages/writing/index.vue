@@ -5,7 +5,7 @@
         v-for="post in posts"
         :key="post.attributes.title"
         cols="12"
-        md="6"
+        md="4"
       >
         <v-card height="100%">
           <v-card-title>
@@ -52,6 +52,6 @@ export default {
 <style scoped>
 .v-card__text,
 .v-card__title {
-  word-break: normal; /* maybe !important  */
+  word-break: normal;
 }
 </style>

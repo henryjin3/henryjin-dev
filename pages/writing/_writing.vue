@@ -3,7 +3,7 @@
     <article>
       <h1>{{ title }}</h1>
       <!-- eslint-disable-next-line -->
-      <div class="content" v-html="post" />
+      <div class="article" v-html="post" />
     </article>
   </v-container>
 </template>
@@ -20,8 +20,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.content {
+<style>
+.article {
   color: #a7a9be;
+}
+.article h2,
+h3 {
+  color: #fffffe;
 }
 </style>
