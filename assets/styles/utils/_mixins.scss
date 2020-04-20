@@ -13,9 +13,26 @@
   }
 }
 
+@mixin mq-down($name) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (max-width: ($min - 1px)) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
 @mixin hover-focus {
   &:hover,
   &:focus {
     @content;
   }
+}
+
+@mixin button-reset() {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }

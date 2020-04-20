@@ -1,50 +1,384 @@
 <template>
-  <header>
-    <div color="orange base">
-      <a class="brand-tab" href="/">
-        <div class="brand">
-          <svg
-            viewBox="0 0 512 512"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M157.331 215.05C182.065 215.05 204.931 215.283 225.931 215.75C236.898 171.417 247.631 140.617 258.131 123.35C265.131 113.317 272.131 106.083 279.131 101.65C281.931 99.7833 284.731 98.85 287.531 98.85C290.565 98.85 292.081 103.4 292.081 112.5C292.081 121.6 291.265 131.167 289.631 141.2C288.231 151.233 286.365 162.783 284.031 175.85C276.331 218.783 270.498 253.083 266.531 278.75C262.798 304.417 260.931 329.15 260.931 352.95C260.931 359.483 256.265 362.75 246.931 362.75C232.231 362.75 222.198 359.95 216.831 354.35C211.465 348.517 208.781 338.133 208.781 323.2C208.781 308.033 211.815 284.233 217.881 251.8C192.215 250.633 175.998 250.05 169.231 250.05H154.881C152.315 250.05 149.748 250.167 147.181 250.4C136.681 290.533 131.431 322.267 131.431 345.6C131.431 359.367 118.015 366.25 91.1814 366.25C85.3481 366.25 81.8481 363.333 80.6814 357.5C79.7481 351.433 79.2814 341.75 79.2814 328.45C79.2814 314.917 83.4814 290.767 91.8815 256C77.6481 258.1 67.2648 259.15 60.7314 259.15C57.6981 259.15 56.1814 257.983 56.1814 255.65C56.1814 250.517 59.9148 244.683 67.3814 238.15C75.0814 231.617 86.2814 226.367 100.981 222.4C109.615 192.533 118.248 168.033 126.881 148.9C101.681 149.367 83.1314 154.267 71.2314 163.6C67.4981 166.4 64.4648 168.967 62.1314 171.3C59.7981 173.4 57.6981 174.45 55.8314 174.45C54.1981 174.45 52.5648 173.05 50.9314 170.25C49.2981 167.45 48.4814 163.717 48.4814 159.05C48.4814 142.017 62.8314 129.067 91.5314 120.2C114.398 113.2 140.998 109.583 171.331 109.35H172.031C173.665 109.35 175.881 110.283 178.681 112.15C181.715 114.017 183.231 117.05 183.231 121.25C183.231 125.45 182.415 130.233 180.781 135.6C179.381 140.733 177.398 144.583 174.831 147.15C173.431 158.117 167.598 180.75 157.331 215.05ZM412.164 148.55C402.598 142.717 393.264 139.8 384.164 139.8C369.464 139.8 353.364 142.133 335.864 146.8L316.964 151.35C311.364 152.75 307.048 153.45 304.014 153.45C297.014 153.45 293.514 150.883 293.514 145.75C293.514 142.717 296.081 138.983 301.214 134.55C306.114 129.883 312.764 125.45 321.164 121.25C341.931 110.983 364.448 105.85 388.714 105.85C423.481 105.85 445.764 111.8 455.564 123.7C458.364 126.967 459.764 131.517 459.764 137.35C459.298 159.983 448.798 220.183 428.264 317.95C455.798 306.75 472.598 297.533 478.664 290.3C484.964 283.067 489.864 279.45 493.364 279.45C496.864 279.45 498.614 283.067 498.614 290.3C498.614 297.533 496.398 303.833 491.964 309.2C487.764 314.567 480.998 320.633 471.664 327.4C462.564 334.167 445.764 342.8 421.264 353.3C419.398 362.633 415.898 373.017 410.764 384.45C393.264 432.75 364.681 456.9 325.014 456.9C305.648 456.9 289.198 452.7 275.664 444.3C262.131 435.9 255.364 422.95 255.364 405.45C255.364 399.15 258.631 393.2 265.164 387.6C271.464 382 280.798 376.05 293.164 369.75C305.298 363.683 329.098 354.35 364.564 341.75C365.964 333.583 367.131 326 368.064 319C368.998 311.767 370.048 305.583 371.214 300.45C376.114 267.083 385.798 227.767 400.264 182.5C404.464 169.667 408.431 158.35 412.164 148.55ZM301.564 424C308.564 427.733 315.214 429.6 321.514 429.6C327.814 429.833 332.598 428.433 335.864 425.4C339.131 422.6 342.631 417.933 346.364 411.4C350.331 404.867 354.181 393.433 357.914 377.1C345.781 381.3 335.398 384.8 326.764 387.6C318.364 390.4 311.481 392.967 306.114 395.3C300.981 397.633 297.248 399.85 294.914 401.95C292.348 404.05 291.064 406.617 291.064 409.65C291.064 415.483 294.564 420.267 301.564 424Z"
-              fill="url(#paint0_linear)"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear"
-                x1="512"
-                y1="512"
-                x2="0"
-                y2="0"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#D12F2F" />
-                <stop offset="0.364583" stop-color="#F25F4C" />
-                <stop offset="1" stop-color="#F3EE75" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      </a>
-      <v-spacer />
-      <a href="/about">about</a>
-      <a href="/writing">writing</a>
+  <nav>
+    <button
+      class="nav__togglebtn"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="toggle menu"
+    >
+      <span class="menuicon">
+        <span class="menuicon__bar"></span>
+        <span class="menuicon__bar"></span>
+        <span class="menuicon__bar"></span>
+        <span class="menuicon__bar"></span>
+      </span>
+    </button>
+    <div class="nav__content">
+      <ul class="nav__menu js-nav-menu" id="nav-menu">
+        <li v-for="link in links" :key="link.name" class="nav__item">
+          <a :href="link.href" class="nav__link">{{ link.name }}</a>
+        </li>
+      </ul>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data() {
+    return {
+      links: [
+        { href: '/about', name: 'about' },
+        { href: '/writing', name: 'writing' }
+      ]
+    };
+  }
 };
 </script>
 
-<style scoped>
-.brand {
-  width: 3em;
-  height: 3em;
+<style lang="scss">
+.nav {
+  display: flex;
+  align-items: center;
+
+  // Nav Menu UL
+  &__menu {
+    display: flex;
+  }
+
+  // Nav Item LI
+  &__item {
+    position: relative;
+
+    // Underline
+    &::after {
+      content: '';
+      display: block;
+      height: 5px;
+      background-color: var(--border-color);
+      position: absolute;
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: -5px;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    // Hover Underline
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    // Current Page Active Item
+    &--active {
+      &::after {
+        background-color: var(--brand-color-primary) !important;
+        transform: none;
+      }
+      > a {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  // Nav Link
+  &__link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 0.75rem 1.25rem;
+    line-height: 1;
+    white-space: nowrap;
+    text-transform: lowercase;
+    color: var(--text-color);
+    transition: color 0.2s linear;
+
+    @include hover-focus {
+      color: var(--text-color);
+    }
+  }
+
+  // Nav Item Number
+  &__num {
+    display: block;
+    margin-right: 0.375rem;
+    font-weight: 700;
+  }
+
+  // Toggle Button
+  &__togglebtn {
+    display: none;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+
+    position: fixed;
+    z-index: z('nav') + 1;
+    right: 5%;
+
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--bg-color-semitransparent);
+  }
+
+  // Darkmode Button
+  &__darkmodebtn {
+    @include button-reset;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 1.75;
+    height: 1.75;
+    margin-left: 2rem;
+    color: var(--text-color);
+
+    @supports (color: var(--fake-var)) {
+      display: flex;
+    }
+
+    .icon--sun {
+      display: none;
+      transform: scale(1.1);
+    }
+    .icon--moon {
+      display: block;
+    }
+
+    .theme-dark & {
+      .icon--sun {
+        display: block;
+      }
+      .icon--moon {
+        display: none;
+      }
+    }
+  }
+
+  // ==================================
+  // MOBILE VERSION (TABLET AND DOWN)
+  // ==================================
+
+  @include mq-down(lg) {
+    &__content {
+      display: none;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+
+      position: fixed;
+      z-index: z('nav');
+      top: 0;
+      left: 0;
+    }
+
+    &__menu {
+      flex-direction: column;
+      justify-content: center;
+      flex: 1 0 auto;
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: opacity 0.5s linear 0.25s,
+        transform 0.5s $animation-curve-default 0.25s;
+    }
+
+    &__item {
+      padding: 0 15%;
+      font-family: $font-family-serif;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      color: #fff;
+
+      &::after {
+        left: 0;
+        right: 70%;
+        height: 10px;
+        bottom: 15%;
+        background-color: $gray;
+      }
+
+      &--active > a {
+        color: #fff;
+      }
+      &--active .nav__num {
+        color: $gray;
+      }
+    }
+
+    &__link {
+      padding: 1.5rem;
+      text-transform: none;
+      color: $gray-light;
+
+      @include hover-focus {
+        color: #fff;
+      }
+    }
+
+    &__num {
+      margin-right: 0.75rem;
+      font-family: $font-family-base;
+      font-weight: 300;
+      font-size: 0.5em;
+      color: $gray;
+    }
+
+    &__togglebtn {
+      display: flex;
+      top: 2.25rem;
+    }
+
+    &__darkmodebtn {
+      margin-left: 0;
+      margin-right: 5rem;
+    }
+  }
+
+  // ==================================
+  // MOBILE VERSION (PHONE ONLY)
+  // ==================================
+
+  @include mq-down(md) {
+    &__togglebtn {
+      top: 1.15rem;
+    }
+  }
+}
+
+// ==================================
+// NAV OPEN STATE (MOBILE ONLY)
+// ==================================
+
+.nav--open {
+  @include mq-down(lg) {
+    .nav__content {
+      display: flex;
+    }
+
+    .nav__menu--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav__togglebtn {
+      color: #fff;
+      background-color: transparent;
+    }
+
+    .nav__bg {
+      visibility: visible;
+    }
+
+    .nav__bg__circle {
+      transform: scale(1);
+    }
+  }
+}
+
+// ==================================
+// NAV BACKGROUND ANIMATION
+// ==================================
+
+.nav__bg {
+  position: fixed;
+  z-index: z('nav') - 1;
+  top: 25px;
+  right: 5%;
+  height: 4px;
+  width: 4px;
+  transform: translateX(-22px) translateY(22px);
+  pointer-events: none;
+  visibility: hidden;
+
+  &__circle {
+    display: block;
+    width: 300vmax;
+    height: 300vmax;
+    width: calc(var(--diameter) * 2);
+    height: calc(var(--diameter) * 2);
+
+    position: absolute;
+    top: -150vmax;
+    left: -150vmax;
+    top: calc(var(--diameter) * -1);
+    left: calc(var(--diameter) * -1);
+
+    border-radius: 50%;
+    backface-visibility: hidden;
+    background-color: darken($gray-darkest, 5%);
+
+    transform: scale(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.4s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    will-change: transform;
+  }
+
+  @include mq(md) {
+    top: 42px;
+  }
+  @include mq(lg) {
+    display: none;
+  }
+}
+
+// ==================================
+// NAV MENU BUTTON ICON
+// ==================================
+
+.menuicon {
+  display: block;
+  width: 24px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  margin: 0 auto;
+
+  &__bar {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: currentColor;
+    left: 0;
+    transform: rotate(0deg);
+    transition: transform 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 50%;
+    }
+    &:nth-child(4) {
+      top: 100%;
+    }
+  }
+
+  // Animate to "X" when Nav is open
+  .nav--open & {
+    transform: rotate(270deg);
+
+    .menuicon__bar {
+      &:nth-child(1),
+      &:nth-child(4) {
+        width: 0;
+        top: 50%;
+        left: 50%;
+      }
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
 }
 </style>
