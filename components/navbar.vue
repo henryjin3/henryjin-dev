@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="nav">
     <button
       class="nav__togglebtn"
       aria-expanded="false"
@@ -13,6 +13,7 @@
         <span class="menuicon__bar"></span>
       </span>
     </button>
+    {{ diameter }}
     <div class="nav__content">
       <ul class="nav__menu js-nav-menu" id="nav-menu">
         <li v-for="link in links" :key="link.name" class="nav__item">
@@ -20,10 +21,17 @@
         </li>
       </ul>
     </div>
+
+    <div class="nav__bg theme-dark">
+      <div class="nav__bg__circle"></div>
+    </div>
   </nav>
 </template>
 
 <script>
+import '../assets/styles/base/_reboot.scss';
+import '../assets/styles/base/_focus.scss';
+
 export default {
   name: 'Navbar',
   data() {
@@ -31,8 +39,37 @@ export default {
       links: [
         { href: '/about', name: 'about' },
         { href: '/writing', name: 'writing' }
-      ]
+      ],
+      diameter: 0
     };
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.setScreenDiameter);
+  },
+  methods: {
+    setScreenDiameter() {
+      const screen = this.getWindowDimensions();
+      const diameter = Math.sqrt(screen.height ** 2 + screen.width ** 2);
+      document.documentElement.style.setProperty('--diameter', `${diameter}px`);
+      this.diameter = diameter;
+      console.log(diameter);
+    },
+
+    getWindowDimensions() {
+      const w = window;
+      const d = document;
+      const e = d.documentElement;
+      const g = d.getElementsByTagName('body')[0];
+
+      const x = w.innerWidth || e.clientWidth || g.clientWidth;
+      const y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+      return {
+        width: x,
+        height: y
+      };
+    }
   }
 };
 </script>
