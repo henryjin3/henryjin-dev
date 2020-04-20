@@ -3,7 +3,15 @@
     <v-layout justify-center column>
       <div class="title greeting">Hello, my name is Henry.</div>
       <div class="display-3">
-        I make technology work
+        <span>I make</span>
+        <div class="rw-words">
+          <span>technology</span>
+          <span>apps</span>
+          <span>C#</span>
+          <span>JavaScript</span>
+        </div>
+        <br />
+        <span>work</span>
         <p>better.</p>
       </div>
     </v-layout>
@@ -35,6 +43,55 @@ p {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* word rotator */
+.rw-words {
+  display: inline;
+  text-indent: 15px;
+}
+.rw-words span {
+  animation: topToBottom 12.5s linear infinite 0s;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  color: #a7a9be;
+}
+.rw-words span:nth-child(2) {
+  animation-delay: 3s;
+}
+.rw-words span:nth-child(3) {
+  animation-delay: 6s;
+}
+.rw-words span:nth-child(4) {
+  animation-delay: 9s;
+}
+@keyframes topToBottom {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>
