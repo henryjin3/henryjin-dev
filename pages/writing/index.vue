@@ -24,6 +24,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Henry | Writing',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: "All of Henry's writing"
+        }
+      ]
+    };
+  },
   async asyncData() {
     const context = await require.context(
       '~/assets/content/writing',

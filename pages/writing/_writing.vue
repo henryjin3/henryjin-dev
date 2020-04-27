@@ -3,6 +3,7 @@
     <article>
       <h1>{{ title }}</h1>
       <!-- eslint-disable-next-line -->
+      <p>{{ description }}</p>
       <div class="article" v-html="post" />
     </article>
   </v-container>
@@ -10,11 +11,24 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Henry Writing | ' + this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    };
+  },
   async asyncData({ params }) {
     const markdown = await require(`~/assets/content/writing/${params.writing}/${params.writing}.md`);
     return {
       post: markdown.html,
-      title: markdown.attributes.title
+      title: markdown.attributes.title,
+      description: markdown.attributes.description
     };
   }
 };

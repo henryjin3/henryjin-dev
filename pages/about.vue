@@ -4,6 +4,11 @@
 
 <script>
 export default {
-  name: 'about'
+  name: 'about',
+  head() {
+    return {
+      title: 'About Henry'
+    };
+  }
 };
 </script>

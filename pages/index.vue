@@ -19,7 +19,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: 'Henry Jin \u2014 Full Stack Developer',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Hello, my name is Henry. I make technology work better.'
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped>
