@@ -13,6 +13,9 @@
               {{ post.attributes.title }}
             </nuxt-link>
           </v-card-title>
+          <v-card-subtitle>
+            {{ post.prettyDateString }}
+          </v-card-subtitle>
           <v-card-text>
             {{ post.attributes.description }}
           </v-card-text>
@@ -52,10 +55,23 @@ export default {
       };
     });
     return {
-      posts: posts.sort(
-        //sort by date in descending order
-        (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
-      )
+      posts: posts
+        .sort(
+          //sort by date in descending order
+          (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
+        )
+        .map((post) => ({
+          ...post,
+          //add in the pretty date
+          prettyDateString: new Date(post.attributes.date).toLocaleDateString(
+            undefined,
+            {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            }
+          )
+        }))
     };
   }
 };
