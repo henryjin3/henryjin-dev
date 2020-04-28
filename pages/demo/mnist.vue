@@ -1,24 +1,50 @@
 <template>
   <v-container fluid>
-    <div id="paint" ref="paint" class="painter">
-      <canvas
-        id="number_painter"
-        ref="number_painter"
-        @mousedown="startPaint"
-        @mousemove="trackMouse"
-        @mouseup="endPaint"
-        @touchstart="touchStart"
-        @touchmove="touchMove"
-        @touchend="touchEnd"
-      ></canvas>
-    </div>
-    <div id="predicted">
-      <p>Predicted: {{ predicted }}</p>
-      <v-btn @click="clearCanvas">Clear</v-btn>
-    </div>
-    <div id="processed" class="painter">
-      <canvas id="approx_painter" ref="approx_painter"></canvas>
-    </div>
+    <article>
+      <h1>Handwritten Number Recognition ML Demo</h1>
+      <v-row>
+        <v-col cols="12" sm="6">
+          <div id="paint" ref="paint" class="painter">
+            <canvas
+              id="number_painter"
+              ref="number_painter"
+              @mousedown="startPaint"
+              @mousemove="trackMouse"
+              @mouseup="endPaint"
+              @touchstart="touchStart"
+              @touchmove="touchMove"
+              @touchend="touchEnd"
+            ></canvas>
+          </div>
+          <v-btn @click="clearCanvas">Clear</v-btn>
+        </v-col>
+        <v-col class="results" cols="12" sm="6">
+          <div id="predicted">
+            <h2>You wrote:</h2>
+            <v-progress-circular
+              v-show="isPredicting"
+              class="progress_spinner"
+              indeterminate
+            ></v-progress-circular>
+            <h2>{{ predicted }}</h2>
+          </div>
+          <div id="processed" ref="processed">
+            <h2>I see:</h2>
+            <canvas id="approx_painter" ref="approx_painter"></canvas>
+          </div>
+        </v-col>
+      </v-row>
+      <p>
+        The number recognizer uses a basic CNN network model trained on the
+        MNIST dataset to recognize handwriting input of digits. This model has
+        an approximately 0.89% error rate on the test set, meaning it
+        <em>should</em> get most handwriting input correct. (insert disclaimer
+        here)
+      </p>
+      <p>
+        For more information, check out my upcoming article - stay tuned!
+      </p>
+    </article>
   </v-container>
 </template>
 
@@ -27,6 +53,7 @@ export default {
   data() {
     return {
       isPainting: false,
+      isPredicting: false,
       paintContext: null,
       mouse: { x: 0, y: 0 },
       offsetLeft: 0,
@@ -52,6 +79,12 @@ export default {
       computedStyle.getPropertyValue('width')
     );
     this.$refs.number_painter.height = this.$refs.number_painter.width;
+
+    //set approx painter size
+    const size = 280;
+    const painter = this.$refs.approx_painter;
+    painter.width = size;
+    painter.height = size;
 
     //https://stackoverflow.com/questions/11805955/how-to-get-the-distance-from-the-top-for-an-element
     this.offsetLeft = paint.getBoundingClientRect().left + window.pageXOffset;
@@ -97,11 +130,6 @@ export default {
       this.predict(input);
     },
     drawApproximation(input) {
-      const size = this.$refs.number_painter.width;
-      const painter = this.$refs.approx_painter;
-      painter.width = size;
-      painter.height = size;
-
       const ctx = this.$refs.approx_painter.getContext('2d');
 
       for (let y = 0; y < 28; y++) {
@@ -120,6 +148,7 @@ export default {
       }
     },
     async predict(input) {
+      this.isPredicting = true;
       if (!this.model) {
         this.model = await tf.loadLayersModel('/mnist/model.json');
       }
@@ -128,6 +157,7 @@ export default {
         .array();
       scores = scores[0];
       this.predicted = scores.indexOf(Math.max(...scores));
+      this.isPredicting = false;
     },
     clearCanvas(e) {
       const size = this.$refs.number_painter.width;
@@ -163,6 +193,9 @@ export default {
 <style scoped>
 .painter {
   border: 3px solid orange;
+}
+.results {
+  color: orange;
 }
 #scaled_image {
   height: 28px;
