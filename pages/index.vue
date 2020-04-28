@@ -5,13 +5,12 @@
       <div class="display-3">
         <span>I make</span>
         <div class="rw-words">
-          <span>technology</span>
+          <span>software</span>
           <span>apps</span>
           <span>C#</span>
           <span>JavaScript</span>
         </div>
         <br />
-        <span>work</span>
         <p>better.</p>
       </div>
     </v-layout>
@@ -27,7 +26,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Hello, my name is Henry. I make technology work better.'
+          content: 'Hello, my name is Henry. I make software better.'
         }
       ]
     };
@@ -60,16 +59,11 @@ p {
 }
 
 /* word rotator */
-.rw-words {
-  display: inline;
-  text-indent: 15px;
-}
 .rw-words span {
   animation: topToBottom 12.5s linear infinite 0s;
   position: absolute;
   width: 100%;
   opacity: 0;
-  color: #a7a9be;
 }
 .rw-words span:nth-child(2) {
   animation-delay: 3s;
