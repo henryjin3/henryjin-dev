@@ -38,6 +38,9 @@ export default {
 .article {
   color: #a7a9be;
 }
+h1 {
+  color: orange;
+}
 .article h2,
 h3 {
   color: #fffffe;
