@@ -3,7 +3,7 @@
     <h1 class="intro_title">Welcome.</h1>
     <v-row>
       <v-col cols="12" sm="6">
-        <v-img src="profile.png" alt="Henry Jin"></v-img>
+        <v-img src="profile.png" alt="Henry Jin" max-width="400px"></v-img>
       </v-col>
       <v-col class="intro_text" cols="12" sm="6">
         <p>
@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style scoped>
+.v-image {
+  border-radius: 15%;
+}
 .intro_title {
   font-size: 2rem;
   text-align: center;
