@@ -1,7 +1,8 @@
 <template>
   <v-container fluid>
     <article>
-      <h1>Handwritten Number Recognition ML Demo</h1>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
       <v-row>
         <v-col cols="12" sm="6">
           <div id="paint" ref="paint" class="painter">
@@ -35,9 +36,9 @@
         </v-col>
       </v-row>
       <p>
-        The number recognizer uses a basic CNN network model trained on the
-        MNIST dataset to recognize handwriting input of digits. This model has
-        an approximately 0.89% error rate on the test set, meaning it
+        The handwriting recognizer uses a basic CNN network model trained on the
+        MNIST dataset to recognize single digit numeric input. This model has an
+        approximately 0.89% error rate on the test set, meaning it
         <em>should</em> get most handwriting input correct. (insert disclaimer
         here)
       </p>
@@ -50,6 +51,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Henry | ' + this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    };
+  },
   data() {
     return {
       isPainting: false,
@@ -59,7 +72,10 @@ export default {
       offsetLeft: 0,
       offsetTop: 0,
       predicted: null,
-      model: null
+      model: null,
+      title: 'Handwritten Number Recognition | Machine Learning Demo',
+      description:
+        'A handwriting recognizer using deep learning and TensorFlow.js.'
     };
   },
   mounted() {

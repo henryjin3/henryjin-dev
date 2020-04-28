@@ -32,6 +32,11 @@
         I also did a stint as a middle school math teacher, teaching low-income
         and at-risk children in the Houston area.
       </p>
+      <h2>Demos</h2>
+      <p>
+        Machine Learning in Action! See the
+        <a href="/demo/mnist"> Handwriting Recognizer</a>.
+      </p>
     </div>
   </v-container>
 </template>
