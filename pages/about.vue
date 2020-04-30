@@ -34,7 +34,7 @@
       </p>
       <h2>Demos</h2>
       <p>
-        Machine Learning in Action! See the
+        Machine learning in action! See the
         <a href="/demo/mnist"> Handwriting Recognizer</a>.
       </p>
     </div>

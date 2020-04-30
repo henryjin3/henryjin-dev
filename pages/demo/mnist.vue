@@ -79,7 +79,7 @@ export default {
       model: null,
       title: 'Handwritten Number Recognition: A Machine Learning Demo',
       description:
-        'A handwriting recognizer using deep learning and TensorFlow.js.'
+        'A browser-based handwriting recognizer using deep learning and TensorFlow.js.'
     };
   },
   mounted() {
