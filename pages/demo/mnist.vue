@@ -12,9 +12,9 @@
               @mousedown="startPaint"
               @mousemove="keepPainting"
               @mouseup="endPaint"
-              @touchstart="touchStart"
-              @touchmove="touchMove"
-              @touchend="touchEnd"
+              @touchstart="touchEventConverter($event, 'mousedown')"
+              @touchmove="touchEventConverter($event, 'mousemove')"
+              @touchend="touchEventConverter($event, 'mouseup')"
             ></canvas>
           </div>
           <v-btn @click="clearCanvas">Clear</v-btn>
@@ -45,7 +45,12 @@
         here)
       </p>
       <p>
-        For more information, check out my upcoming article - stay tuned!
+        For more information, check out my
+        <n-link
+          to="/writing/mobile-friendly-numeric-handwriting-recognition-on-the-web-using-tensorflowjs"
+          >article</n-link
+        >
+        on how I made this.
       </p>
     </article>
   </v-container>
@@ -92,11 +97,8 @@ export default {
     document.head.appendChild(tensorflow);
 
     //set the canvas size
-    const paint = this.$refs.paint;
-    const computedStyle = getComputedStyle(paint);
-
     this.$refs.number_painter.width = parseInt(
-      computedStyle.getPropertyValue('width')
+      getComputedStyle(this.$refs.paint).getPropertyValue('width')
     );
     this.$refs.number_painter.height = this.$refs.number_painter.width;
 
@@ -144,15 +146,13 @@ export default {
       this.isPainting = false;
       this.isPredicting = true;
 
-      const img = this.$refs.number_painter;
-
       // clear out part of our approximation image - just using it for convenience, since we're
       // going to be clearing it out anyways.
       this.approxContext.clearRect(0, 0, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE);
 
       // scale down the handwritten image
       this.approxContext.drawImage(
-        img,
+        this.$refs.number_painter,
         0,
         0,
         MODEL_INPUT_SIZE,
@@ -239,15 +239,6 @@ export default {
         MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER
       );
       this.predicted = null;
-    },
-    touchStart(e) {
-      this.touchEventConverter(e, 'mousedown');
-    },
-    touchMove(e) {
-      this.touchEventConverter(e, 'mousemove');
-    },
-    touchEnd(e) {
-      this.touchEventConverter(e, 'mouseup');
     },
     touchEventConverter(e, eventString) {
       e.preventDefault();
