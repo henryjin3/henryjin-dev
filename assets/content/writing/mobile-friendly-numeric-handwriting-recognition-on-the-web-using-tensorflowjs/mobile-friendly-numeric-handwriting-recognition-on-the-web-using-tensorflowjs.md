@@ -6,7 +6,7 @@ description: Machine learning in action! Learn how to make a handwriting recogni
 
 First, try it out!
 
-[https://henryjin.dev/demo/mnist/](https://henryjin.dev/demo/mnist/)
+[https://henryjin.dev/demo/mnist/](/demo/mnist/)
 
 <!-- (demo gif here soon) -->
 
