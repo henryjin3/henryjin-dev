@@ -28,10 +28,10 @@ At this point in the class, I've realized a couple different things.
 
 Again, this was naive of me, but I thought that with my background in Cognitive Sciences, I would be able to quickly assimilate the information in one class and then turn to implementation. Unfortunately for me, my degree is now ancient, and I need to catch up to over a decade of advancements and people who have been spending the past decade doing nothing but machine learning.
 
-As such, I am planning on continuing my learning by working through some additional classes. I haven't fully decided which one to start with yet, but I am leaning towards Google's [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) to give myself some more practical implementation experience with TensorFlow. After that, I'll probably still need to take at least another couple classes while working on some test projects. So it's a still a long road ahead. That said, there was one encouraging thing.
+I am planning on continuing my learning by working through some additional classes. I haven't fully decided which one to start with yet, but I am leaning towards Google's [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course) to give myself some more practical implementation experience with TensorFlow. After that, I'll probably still need to take at least another couple classes while working on some test projects. So it's a still a long road ahead. That said, there was one encouraging thing.
 
 ### Advancements Don't Happen That Fast
 
 One of my key takeaways from my undergrad Cognitive Sciences degree is that frankly, we don't know that much about the human brain or how it works. Clearly, advancements in computing have led to the democratization of machine learning, where what was formerly only available to researchers with computing clusters is now able to be done by almost anyone with an internet connection. However, many of the concepts are fundamentally the same as they were more than a decade ago.
 
-As such, I'm betting that my learning speed is fast enough that I'll be able to catch up even though I am more than a decade behind. I'll keep writing as I go, stay tuned for more.
+I'm betting that my learning speed is fast enough that I'll be able to catch up even though I am more than a decade behind. I'll keep writing as I go, stay tuned for more.

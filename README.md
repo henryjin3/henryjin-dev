@@ -4,7 +4,7 @@
 
 Source code for [henryjin.dev](https://henryjin.dev), my personal website based on the JAMstack.
 
-This version is built with [Nuxt.js](https://nuxtjs.org/).
+This version is built with [Nuxt.js](https://nuxtjs.org/), a framework based on [Vue.js](https://vuejs.org/).
 
 ## Features
 

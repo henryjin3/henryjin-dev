@@ -4,9 +4,9 @@
       <v-col class="pa-2">
         <strong>&copy;{{ new Date().getFullYear() }}</strong
         ><br />
-        <a href="https://henryjin.dev">
+        <n-link to="/">
           Henry Jin
-        </a>
+        </n-link>
       </v-col>
       <v-col class="pa-2">
         <strong> Social</strong><br />
