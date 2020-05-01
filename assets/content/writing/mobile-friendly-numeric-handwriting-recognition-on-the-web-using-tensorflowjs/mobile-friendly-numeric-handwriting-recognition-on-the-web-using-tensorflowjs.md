@@ -77,7 +77,7 @@ We'll add the event bindings for this in the next part.
 
 In the `mounted` function of your Vue component, you'll want to set up the canvas size and the paint context. The canvas needs to be a square for the ML model, so set the height equal to the width. For ease of use, I recommend adding `paintContext` to your `data` function, although you could also just get the context each time.
 
-```javascript
+```js
 //set the canvas size
 const paint = this.$refs.paint;
 const computedStyle = getComputedStyle(paint);
@@ -99,7 +99,7 @@ this.paintContext.lineWidth = 50;
 
 First, let's create a helper method to let us properly calculate where on the canvas our user is clicking/touching. You'll need to account for both the page offset as well as the user's scroll position. Place this in the `methods` property of your Vue component.
 
-```javascript
+```js
 setMouseWithOffset(e) {
   const bounds = this.$refs.paint.getBoundingClientRect();
 
@@ -115,7 +115,7 @@ setMouseWithOffset(e) {
 
 Then, let's create our basic mouse events. After creating an `isPainting` attribute in our data function, create the `startPaint` method. This happens when the user first clicks or touches, and begins painting.
 
-```javascript
+```js
 startPaint(e) {
   this.isPainting = true;
   this.paintContext.beginPath();
@@ -126,7 +126,7 @@ startPaint(e) {
 
 Next, let's create the `keepPainting` method, which updates the mouse position and current stroke.
 
-```javascript
+```js
 keepPainting(e) {
   this.setMouseWithOffset(e);
   if (this.isPainting) {
@@ -138,7 +138,7 @@ keepPainting(e) {
 
 Now to our last mouse event, `endPaint`. We'll be adding to this later.
 
-```javascript
+```js
 endPaint(e) {
   this.isPainting = false;
 }
@@ -158,7 +158,7 @@ Now let's bind them up to our canvas object.
 
 With these in place, let's make our canvas mobile&ndash;friendly with touch events. The code for this is pretty basic, just one helper function. This prevents scrolling while touching (for iOS devices) and dispatches the mouse events that we already hooked up.
 
-```javascript
+```js
 touchEventConverter(e, eventString) {
   e.preventDefault();
   const touch = e.touches[0];
@@ -207,12 +207,12 @@ Before we just feed this data to our model, we'll output it to a 10x size approx
 
 In the `mounted` function, set up the size. I've also set up component&ndash;level constants for ease of use.
 
-```javascript
+```js
 const MODEL_INPUT_SIZE = 28;
 const APPROX_IMAGE_MULTIPLIER = 10;
 ```
 
-```javascript
+```js
 //set up painter for image approximation
 this.$refs.approx_painter.width = MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
 this.$refs.approx_painter.height = MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
@@ -221,7 +221,7 @@ this.approxContext = this.$refs.approx_painter.getContext('2d');
 
 Now let's scale down the image first. We'll clear out a space on our new canvas, scale down the image, and get the scaled-down data.
 
-```javascript
+```js
 this.approxContext.clearRect(0, 0, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE);
 
 // scale down the handwritten image
@@ -244,7 +244,7 @@ const data = this.approxContext.getImageData(
 
 Now let's create an input vector, removing RGBA data.
 
-```javascript
+```js
 var input = [];
 for (var i = 0; i < data.length; i += 4) {
   input.push(data[i + 2] / 255);
@@ -261,7 +261,7 @@ Now, when you draw a number, you should see what the machine learning model will
 
 First, we'll need to load the TensorFlow.js script. I've done this via the `mounted` component:
 
-```javascript
+```js
 //load tensorflow script only for this component
 const tensorflow = document.createElement('script');
 tensorflow.setAttribute(
@@ -275,7 +275,7 @@ With this, you now have access to the `tf` variable. We'll use this to load our 
 
 Next, let's get to the prediction. Create an `async` helper function which takes the input vector we created in the last part.
 
-```javascript
+```js
 async predict(input) {
 ```
 
@@ -283,7 +283,7 @@ Next, check if we've already loaded the model. If not, load it!
 
 > Note, I clean up TensorFlow here too. This only affects you during development if you are using hot reloading, and is just for convenience.
 
-```javascript
+```js
 if (!this.model) {
   //clear up TensorFlow since during hot reloading it's still there
   tf.disposeVariables();
@@ -294,7 +294,7 @@ if (!this.model) {
 
 Finally, let's get out our predicted scores. We'll resize the input vector to match our model, use it to predict, and then get the `max` probability out of the output vector to tell us which digit our model is predicting.
 
-```javascript
+```js
 let scores = await this.model
   .predict([
     tf.tensor(input).reshape([1, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE, 1])

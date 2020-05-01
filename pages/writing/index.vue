@@ -11,9 +11,9 @@
       >
         <v-card height="100%">
           <v-card-title>
-            <nuxt-link :to="post.path">
+            <n-link :to="post.path">
               {{ post.attributes.title }}
-            </nuxt-link>
+            </n-link>
           </v-card-title>
           <v-card-subtitle>
             {{ post.prettyDateString }}
@@ -42,8 +42,6 @@ export default {
     };
   },
   async asyncData() {
-    const fm = require('front-matter');
-
     const context = await require.context(
       '~/assets/content/writing',
       true,
