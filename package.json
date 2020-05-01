@@ -14,8 +14,11 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
+    "front-matter": "^3.1.0",
     "frontmatter-markdown-loader": "^3.3.0",
-    "nuxt": "^2.0.0"
+    "markdown-it": "^10.0.0",
+    "nuxt": "^2.0.0",
+    "shiki": "^0.1.7"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",
@@ -31,9 +34,12 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "oniguruma": "^7.2.1",
     "prettier": "^1.19.1",
+    "raw-loader": "^4.0.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
-    "require-extension-hooks-vue": "^2.0.0"
+    "require-extension-hooks-vue": "^2.0.0",
+    "typescript": "^3.8.3"
   }
 }

@@ -25,4 +25,9 @@ export default {
 a {
   text-decoration: none;
 }
+.v-application code {
+  /* need this to get rid of some default vuetify styling */
+  background-color: transparent;
+  color: inherit;
+}
 </style>

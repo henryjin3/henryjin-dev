@@ -5,7 +5,9 @@
         v-for="post in posts"
         :key="post.attributes.title"
         cols="12"
+        sm="6"
         md="4"
+        lg="3"
       >
         <v-card height="100%">
           <v-card-title>
@@ -40,6 +42,8 @@ export default {
     };
   },
   async asyncData() {
+    const fm = require('front-matter');
+
     const context = await require.context(
       '~/assets/content/writing',
       true,
@@ -56,22 +60,28 @@ export default {
     });
     return {
       posts: posts
+        .map((post) => {
+          const attr = fm(post.default).attributes;
+
+          return {
+            path: post.path,
+            //get out the attributes
+            attributes: attr,
+            //add in the pretty date
+            prettyDateString: new Date(attr.date).toLocaleDateString(
+              undefined,
+              {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              }
+            )
+          };
+        })
         .sort(
           //sort by date in descending order
           (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
         )
-        .map((post) => ({
-          ...post,
-          //add in the pretty date
-          prettyDateString: new Date(post.attributes.date).toLocaleDateString(
-            undefined,
-            {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric'
-            }
-          )
-        }))
     };
   }
 };
