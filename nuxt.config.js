@@ -65,9 +65,15 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
+      const markdownIt = require('markdown-it');
+      const markdownItPrism = require('markdown-it-prism');
+
       config.module.rules.push({
         test: /\.md/,
-        loader: 'frontmatter-markdown-loader'
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          markdownIt: markdownIt({ html: true }).use(markdownItPrism)
+        }
       });
     }
   },

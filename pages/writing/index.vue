@@ -5,13 +5,15 @@
         v-for="post in posts"
         :key="post.attributes.title"
         cols="12"
+        sm="6"
         md="4"
+        lg="3"
       >
         <v-card height="100%">
           <v-card-title>
-            <nuxt-link :to="post.path">
+            <n-link :to="post.path">
               {{ post.attributes.title }}
-            </nuxt-link>
+            </n-link>
           </v-card-title>
           <v-card-subtitle>
             {{ post.prettyDateString }}
@@ -56,22 +58,24 @@ export default {
     });
     return {
       posts: posts
+        .map((post) => {
+          return {
+            ...post,
+            //add in the pretty date
+            prettyDateString: new Date(post.attributes.date).toLocaleDateString(
+              undefined,
+              {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              }
+            )
+          };
+        })
         .sort(
           //sort by date in descending order
           (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
         )
-        .map((post) => ({
-          ...post,
-          //add in the pretty date
-          prettyDateString: new Date(post.attributes.date).toLocaleDateString(
-            undefined,
-            {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric'
-            }
-          )
-        }))
     };
   }
 };

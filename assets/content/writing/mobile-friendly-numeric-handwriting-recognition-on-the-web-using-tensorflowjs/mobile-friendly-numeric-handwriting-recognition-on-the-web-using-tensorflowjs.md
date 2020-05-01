@@ -38,7 +38,7 @@ We will be using the famous [MNIST](http://yann.lecun.com/exdb/mnist/) dataset, 
 
 Once you have created your model and trained it, all you need to export it are three commands:
 
-```Python
+```python
 model.save("model.h5")
 
 !pip install tensorflowjs
@@ -67,12 +67,9 @@ Thanks to Carlos Aguayo for providing the foundation for parts 1, 2, and 4. If y
 
 To allow our users to write and draw, we'll be using the HTML `canvas` element. Go ahead and create that, and wrap it in a `div` which we will need for sizing.
 
-```HTML
+```html
 <div id="paint" ref="paint" class="painter">
-  <canvas
-    id="number_painter"
-    ref="number_painter"
-  ></canvas>
+  <canvas id="number_painter" ref="number_painter"></canvas>
 </div>
 ```
 
@@ -80,13 +77,13 @@ We'll add the event bindings for this in the next part.
 
 In the `mounted` function of your Vue component, you'll want to set up the canvas size and the paint context. The canvas needs to be a square for the ML model, so set the height equal to the width. For ease of use, I recommend adding `paintContext` to your `data` function, although you could also just get the context each time.
 
-```JS
+```js
 //set the canvas size
 const paint = this.$refs.paint;
 const computedStyle = getComputedStyle(paint);
 
 this.$refs.number_painter.width = parseInt(
-computedStyle.getPropertyValue('width')
+  computedStyle.getPropertyValue('width')
 );
 this.$refs.number_painter.height = this.$refs.number_painter.width;
 
@@ -102,7 +99,7 @@ this.paintContext.lineWidth = 50;
 
 First, let's create a helper method to let us properly calculate where on the canvas our user is clicking/touching. You'll need to account for both the page offset as well as the user's scroll position. Place this in the `methods` property of your Vue component.
 
-```JS
+```js
 setMouseWithOffset(e) {
   const bounds = this.$refs.paint.getBoundingClientRect();
 
@@ -118,7 +115,7 @@ setMouseWithOffset(e) {
 
 Then, let's create our basic mouse events. After creating an `isPainting` attribute in our data function, create the `startPaint` method. This happens when the user first clicks or touches, and begins painting.
 
-```JS
+```js
 startPaint(e) {
   this.isPainting = true;
   this.paintContext.beginPath();
@@ -129,7 +126,7 @@ startPaint(e) {
 
 Next, let's create the `keepPainting` method, which updates the mouse position and current stroke.
 
-```JS
+```js
 keepPainting(e) {
   this.setMouseWithOffset(e);
   if (this.isPainting) {
@@ -141,7 +138,7 @@ keepPainting(e) {
 
 Now to our last mouse event, `endPaint`. We'll be adding to this later.
 
-```JS
+```js
 endPaint(e) {
   this.isPainting = false;
 }
@@ -149,7 +146,7 @@ endPaint(e) {
 
 Now let's bind them up to our canvas object.
 
-```HTML
+```html
 <canvas
   id="number_painter"
   ref="number_painter"
@@ -161,7 +158,7 @@ Now let's bind them up to our canvas object.
 
 With these in place, let's make our canvas mobile&ndash;friendly with touch events. The code for this is pretty basic, just one helper function. This prevents scrolling while touching (for iOS devices) and dispatches the mouse events that we already hooked up.
 
-```JS
+```js
 touchEventConverter(e, eventString) {
   e.preventDefault();
   const touch = e.touches[0];
@@ -181,7 +178,7 @@ touchEventConverter(e, eventString) {
 
 And let's bind it! We'll take advantage of Vue's ability to pass in arguments so we can bind the helper function directly.
 
-```HTML
+```html
 <canvas
   id="number_painter"
   ref="number_painter"
@@ -204,29 +201,27 @@ In order to feed the handwriting input to our machine learning model, we need to
 
 Before we just feed this data to our model, we'll output it to a 10x size approximation canvas so we can verify that the data transformation is working. Go ahead and set up another canvas.
 
-```HTML
+```html
 <canvas id="approx_painter" ref="approx_painter"></canvas>
 ```
 
 In the `mounted` function, set up the size. I've also set up component&ndash;level constants for ease of use.
 
-```JS
+```js
 const MODEL_INPUT_SIZE = 28;
 const APPROX_IMAGE_MULTIPLIER = 10;
 ```
 
-```JS
+```js
 //set up painter for image approximation
-this.$refs.approx_painter.width =
-  MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
-this.$refs.approx_painter.height =
-  MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
+this.$refs.approx_painter.width = MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
+this.$refs.approx_painter.height = MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
 this.approxContext = this.$refs.approx_painter.getContext('2d');
 ```
 
 Now let's scale down the image first. We'll clear out a space on our new canvas, scale down the image, and get the scaled-down data.
 
-```JS
+```js
 this.approxContext.clearRect(0, 0, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE);
 
 // scale down the handwritten image
@@ -249,7 +244,7 @@ const data = this.approxContext.getImageData(
 
 Now let's create an input vector, removing RGBA data.
 
-```JS
+```js
 var input = [];
 for (var i = 0; i < data.length; i += 4) {
   input.push(data[i + 2] / 255);
@@ -266,7 +261,7 @@ Now, when you draw a number, you should see what the machine learning model will
 
 First, we'll need to load the TensorFlow.js script. I've done this via the `mounted` component:
 
-```JS
+```js
 //load tensorflow script only for this component
 const tensorflow = document.createElement('script');
 tensorflow.setAttribute(
@@ -280,7 +275,7 @@ With this, you now have access to the `tf` variable. We'll use this to load our 
 
 Next, let's get to the prediction. Create an `async` helper function which takes the input vector we created in the last part.
 
-```JS
+```js
 async predict(input) {
 ```
 
@@ -288,7 +283,7 @@ Next, check if we've already loaded the model. If not, load it!
 
 > Note, I clean up TensorFlow here too. This only affects you during development if you are using hot reloading, and is just for convenience.
 
-```JS
+```js
 if (!this.model) {
   //clear up TensorFlow since during hot reloading it's still there
   tf.disposeVariables();
@@ -299,7 +294,7 @@ if (!this.model) {
 
 Finally, let's get out our predicted scores. We'll resize the input vector to match our model, use it to predict, and then get the `max` probability out of the output vector to tell us which digit our model is predicting.
 
-```JS
+```js
 let scores = await this.model
   .predict([
     tf.tensor(input).reshape([1, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE, 1])
@@ -311,7 +306,7 @@ this.predicted = scores.indexOf(Math.max(...scores));
 
 Set up the `predicted` property in your data function, and then add it to your template like so:
 
-```HTML
+```html
 <h2>{{ predicted }}</h2>
 ```
 

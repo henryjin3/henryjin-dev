@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import '~/assets/css/prism-vsc-dark-plus.css';
+
 export default {
   head() {
     return {
@@ -24,7 +26,10 @@ export default {
     };
   },
   async asyncData({ params }) {
-    const markdown = await require(`~/assets/content/writing/${params.writing}/${params.writing}.md`);
+    const markdown = await import(
+      `~/assets/content/writing/${params.writing}/${params.writing}.md`
+    );
+
     return {
       post: markdown.html,
       title: markdown.attributes.title,
