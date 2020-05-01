@@ -25,9 +25,17 @@ export default {
 a {
   text-decoration: none;
 }
+
+/* need this to get rid of some default vuetify styling, not sure why it's there? */
 .v-application code {
-  /* need this to get rid of some default vuetify styling */
   background-color: transparent;
   color: inherit;
+  box-shadow: none;
+}
+.v-application code::before {
+  content: none;
+}
+.v-application code::after {
+  content: none;
 }
 </style>
