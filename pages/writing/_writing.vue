@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import '~/assets/css/prism-vsc-dark-plus.css';
+
 export default {
   head() {
     return {
@@ -24,35 +26,14 @@ export default {
     };
   },
   async asyncData({ params }) {
-    const rawFile = await import(
+    const markdown = await import(
       `~/assets/content/writing/${params.writing}/${params.writing}.md`
     );
-    const fm = require('front-matter')(rawFile.default);
-
-    const highlighter = await require('shiki').getHighlighter({
-      theme: 'Material-Theme-Palenight'
-    });
-
-    const md = require('markdown-it')({
-      html: true,
-      highlight: (code, lang) => {
-        return highlighter.codeToHtml(code, lang);
-      }
-    });
-    let html = md.render(fm.body);
-
-    //from https://github.com/hmsk/frontmatter-markdown-loader/blob/master/index.js
-    // const stringify = (src) =>
-    //   JSON.stringify(src)
-    //     .replace(/\u2028/g, '\\u2028')
-    //     .replace(/\u2029/g, '\\u2029');
-    // fm.attributes = stringify(fm.attributes);
-    // html = stringify(html);
 
     return {
-      post: html,
-      title: fm.attributes.title,
-      description: fm.attributes.description
+      post: markdown.html,
+      title: markdown.attributes.title,
+      description: markdown.attributes.description
     };
   }
 };

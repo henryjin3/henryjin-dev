@@ -61,14 +61,10 @@ export default {
     return {
       posts: posts
         .map((post) => {
-          const attr = fm(post.default).attributes;
-
           return {
-            path: post.path,
-            //get out the attributes
-            attributes: attr,
+            ...post,
             //add in the pretty date
-            prettyDateString: new Date(attr.date).toLocaleDateString(
+            prettyDateString: new Date(post.attributes.date).toLocaleDateString(
               undefined,
               {
                 year: 'numeric',

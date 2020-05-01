@@ -51,7 +51,7 @@ npm install --global --production windows-build-tools
 
 First, let's create our project. Run this with your project name of choice.
 
-```shell
+```powershell
 npx create-nuxt-app <project-name>
 ```
 
@@ -61,7 +61,7 @@ Work through the options. You can see what I selected below, but feel free to mo
 
 Once Nuxt finishes creating your project, you'll have a folder with lots of folders and files in it. Navigate to this folder and make sure the following command works:
 
-```shell
+```powershell
 npm run generate
 ```
 

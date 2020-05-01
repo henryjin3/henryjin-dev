@@ -65,31 +65,16 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      // const shiki = require('shiki');
+      const markdownIt = require('markdown-it');
+      const markdownItPrism = require('markdown-it-prism');
 
-      // const highlighter = shiki
-      //   .getHighlighter({
-      //     theme: 'Material-Theme-Palenight'
-      //   })
-      //   .then((highlighter) => {
-      //     console.log(`config: ${config.module.rules}`);
-      //     config.module.rules.push({
-      //       test: /\.md/,
-      //       loader: 'frontmatter-markdown-loader',
-      //       options: {
-      //         html: true,
-      //         highlight: (code, lang) => {
-      //           return highlighter.codeToHtml(code, lang);
-      //         }
-      //       }
-      //     });
-      //   });
       config.module.rules.push({
         test: /\.md/,
-        loader: 'raw-loader'
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          markdownIt: markdownIt({ html: true }).use(markdownItPrism)
+        }
       });
-
-      config.node = { fs: 'empty' };
     }
   },
 
