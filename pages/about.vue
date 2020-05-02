@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <h1 class="intro_title">Welcome.</h1>
     <v-row>
       <v-col cols="12" sm="6">

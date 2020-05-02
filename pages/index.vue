@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid fill-height fill-width class="home-hero fade-in">
+  <v-container fluid fill-height fill-width class="fade-in">
     <v-layout justify-center column>
       <div class="title greeting">Hello, my name is Henry.</div>
       <div class="display-3">

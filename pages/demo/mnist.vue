@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <article>
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>

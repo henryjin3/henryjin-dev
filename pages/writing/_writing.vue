@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container>
     <article>
       <h1>{{ title }}</h1>
       <!-- eslint-disable-next-line -->
@@ -51,8 +51,13 @@ h3 {
   color: #fffffe;
 }
 img {
+  /* make images resize with screen width */
   display: block;
   max-width: 100%;
   height: auto;
+
+  /* center images */
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

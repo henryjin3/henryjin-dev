@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid align-center>
+  <v-container>
     <v-row dense>
       <v-col
         v-for="post in posts"
