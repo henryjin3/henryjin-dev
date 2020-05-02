@@ -50,4 +50,9 @@ h1 {
 h3 {
   color: #fffffe;
 }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 </style>
