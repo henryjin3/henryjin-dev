@@ -21,7 +21,7 @@
 export default {
   head() {
     return {
-      title: 'Henry Jin \u2014 Full Stack Developer',
+      title: 'Henry Jin, Full Stack Developer',
       meta: [
         {
           hid: 'description',
