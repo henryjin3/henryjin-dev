@@ -42,6 +42,7 @@ export default {
     };
   },
   async asyncData() {
+    const path = require('path');
     const context = await require.context(
       '~/assets/content/writing',
       true,
@@ -50,10 +51,7 @@ export default {
     const posts = await context.keys().map((key) => {
       return {
         ...context(key),
-        path: `/writing/${key.substring(
-          key.lastIndexOf('/') + 1,
-          key.lastIndexOf('.md')
-        )}`
+        path: `/writing/${path.basename(key, '.md')}`
       };
     });
     return {

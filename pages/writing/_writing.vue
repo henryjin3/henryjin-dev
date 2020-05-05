@@ -27,7 +27,7 @@ export default {
   },
   async asyncData({ params }) {
     const markdown = await import(
-      `~/assets/content/writing/${params.writing}/${params.writing}.md`
+      `~/assets/content/writing/${params.writing}.md`
     );
 
     return {

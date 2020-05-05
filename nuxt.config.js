@@ -87,7 +87,7 @@ export default {
       const fs = require('fs');
       return fs.readdirSync('./assets/content/writing').map((file) => {
         return {
-          route: `/writing/${path.parse(file).name}` // shorten the route
+          route: `/writing/${path.parse(file).name}`
         };
       });
     }

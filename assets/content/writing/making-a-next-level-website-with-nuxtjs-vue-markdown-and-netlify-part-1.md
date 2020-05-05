@@ -74,4 +74,4 @@ publish directory as `dist`. It should look like this:
 
 ![netlify-new-site](/media/netlify-new-site.png)
 
-And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up a few more things in part 2.
+And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up Markdown in [Part 2](/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-2).
