@@ -72,7 +72,7 @@ In this folder, create a `_writing.vue` file. In the template section, add the f
 <script>
 ```
 
-We are just showing the title from FromtMatter and then the `post`, which is a variable that we will set up in the script section, see below:
+We are just showing the title from FrontMatter and then the `post`, which is a variable that we will set up in the script section, see below:
 
 ```js
 <script>
