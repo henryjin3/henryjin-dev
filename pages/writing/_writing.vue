@@ -2,9 +2,7 @@
   <v-container>
     <article>
       <h1>{{ title }}</h1>
-      <!-- eslint-disable-next-line -->
       <p>{{ description }}</p>
-      <!-- <div class="article" v-html="post" /> -->
       <component :is="post"></component>
     </article>
   </v-container>
@@ -26,19 +24,19 @@ export default {
       ]
     };
   },
-  created() {
-    const markdown = require(`~/assets/content/writing/${this.$route.params.writing}.md`);
-
-    this.post = markdown.vue.component;
-    this.title = markdown.attributes.title;
-    this.description = markdown.attributes.description;
-  },
   data() {
     return {
       post: null,
       title: null,
       description: null
     };
+  },
+  created() {
+    const markdown = require(`~/assets/content/writing/${this.$route.params.writing}.md`);
+
+    this.post = markdown.vue.component;
+    this.title = markdown.attributes.title;
+    this.description = markdown.attributes.description;
   }
 };
 </script>
