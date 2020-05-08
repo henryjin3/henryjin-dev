@@ -30,7 +30,7 @@ We're going to start by firing up [Google Colab](https://colab.research.google.c
 
 We will be using the famous [MNIST](http://yann.lecun.com/exdb/mnist/) dataset, which is often used in courses which teach machine learning and vision recognition. This is a dataset which consists of handwritten digits, as below:
 
-![mnist-data](/mnist/mnist-data.png)_Josef Steppan [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0)_
+![mnist-data](~/assets/content/writing/mobile-friendly-numeric-handwriting-recognition-on-the-web-using-tensorflowjs/mnist-data.png)_Josef Steppan [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0)_
 
 > I won't be going into the details of how to design the neural network itself. This is much better explained [here](https://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/), although some of the code needed to be updated for the latest version of TensorFlow. You can see my code [here](https://colab.research.google.com/gist/henryjin3/e8fd4d893116103bc1b03b6f50f18175/mnist-demo.ipynb).
 
@@ -48,7 +48,7 @@ model.save("model.h5")
 
 Finally, in the left nav click on the folder icon and under the `model` folder you should see a `model.json` file as well as a `group1-shard1of1.bin` file. Download both of these by right-clicking and hitting "Download".
 
-![colab download](/mnist/colab-download.png)
+![colab download](~/assets/content/writing/mobile-friendly-numeric-handwriting-recognition-on-the-web-using-tensorflowjs/colab-download.png)
 
 Put these files somewhere your Vue page will be able to access them. Mine are in `/static/mnist/`.
 
