@@ -57,6 +57,8 @@ export default {
     return {
       posts: posts
         .map((post) => {
+          //need to exclude the Vue component bc we're using the asyncData method
+          post.vue = null;
           return {
             ...post,
             //add in the pretty date
