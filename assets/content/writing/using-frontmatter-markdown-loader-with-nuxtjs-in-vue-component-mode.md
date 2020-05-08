@@ -46,6 +46,8 @@ config.module.rules.push({
 
 You don't need to set the `vue` property if you don't want to set a class on the wrapper of your code elements, but I found it helpful for styling purposes.
 
+## Issue #2&mdash;Handlebars Templates
+
 After I set this up, I found that there was another issue where code blocks that contained handlebars templates would actually try to read them as if they were Vue template code. For example:
 
 ```html
@@ -53,3 +55,19 @@ After I set this up, I found that there was another issue where code blocks that
 ```
 
 This would fail as attributes was not yet defined. I logged an [issue](https://github.com/hmsk/frontmatter-markdown-loader/issues/154) and [hmsk](https://github.com/hmsk) resolved it within just two days, allowing me to publish this now. Thanks, hmsk!
+
+## Moving Images to the Assets Folder
+
+Now that Vue component mode is working, image URLs in my Markdown files are also getting transformed by webpack, so I can simply change the reference from my static folder:
+
+```md
+![nuxt-setup](/media/nuxt-setup.png)
+```
+
+To my assets folder:
+
+```md
+![nuxt-setup](~/assets/content/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1/nuxt-setup.png)
+```
+
+This not only allows me to organize my images closer to the articles that they are used in, but makes it possible to use something like [nuxt-responsive-loader](https://github.com/geeogi/nuxt-responsive-loader#readme) to automatically generate and use different sizes of images within my Markdown-based posts.
