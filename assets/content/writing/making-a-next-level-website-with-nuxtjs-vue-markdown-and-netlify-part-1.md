@@ -57,7 +57,7 @@ npx create-nuxt-app <project-name>
 
 Work through the options. You can see what I selected below, but feel free to modify the options as you see fit. You can always add or remove packages later.
 
-![nuxt-setup](/media/nuxt-setup.png)
+![nuxt-setup](~/assets/content/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1/nuxt-setup.png)
 
 Once Nuxt finishes creating your project, you'll have a folder with lots of folders and files in it. Navigate to this folder and make sure the following command works:
 
@@ -72,6 +72,6 @@ This runs the static site generator of Nuxt, which takes our Vue files and turns
 In your Netlify account, go to Sites and click "Add new site from Git". You'll then need to do an OAuth connection with Github and give Netlify access to your repo. After that, make sure you set up the build command as `npm run generate` and
 publish directory as `dist`. It should look like this:
 
-![netlify-new-site](/media/netlify-new-site.png)
+![netlify-new-site](~/assets/content/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1/netlify-new-site.png)
 
 And you're done! Watch it build and make sure it deploys correctly, and you'll then be able to see your new site at `<project-name>.netlify.com`. Time to celebrate, right? We'll come back and hook up Markdown in [Part 2](/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-2).

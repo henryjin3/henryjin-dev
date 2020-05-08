@@ -2,9 +2,8 @@
   <v-container>
     <article>
       <h1>{{ title }}</h1>
-      <!-- eslint-disable-next-line -->
       <p>{{ description }}</p>
-      <div class="article" v-html="post" />
+      <component :is="post"></component>
     </article>
   </v-container>
 </template>
@@ -25,28 +24,31 @@ export default {
       ]
     };
   },
-  async asyncData({ params }) {
-    const markdown = await import(
-      `~/assets/content/writing/${params.writing}.md`
-    );
-
+  data() {
     return {
-      post: markdown.html,
-      title: markdown.attributes.title,
-      description: markdown.attributes.description
+      post: null,
+      title: null,
+      description: null
     };
+  },
+  created() {
+    const markdown = require(`~/assets/content/writing/${this.$route.params.writing}.md`);
+
+    this.post = markdown.vue.component;
+    this.title = markdown.attributes.title;
+    this.description = markdown.attributes.description;
   }
 };
 </script>
 
 <style>
-.article {
+.markdown-body {
   color: #a7a9be;
 }
 h1 {
   color: orange;
 }
-.article h2,
+.markdown-body h2,
 h3 {
   color: #fffffe;
 }

@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors';
 import path from 'path';
+import FMMode from 'frontmatter-markdown-loader/mode';
 
 export default {
   mode: 'universal',
@@ -75,9 +76,18 @@ export default {
         test: /\.md/,
         loader: 'frontmatter-markdown-loader',
         options: {
+          mode: [FMMode.VUE_COMPONENT],
+          vue: {
+            root: 'markdown-body'
+          },
           markdownIt: markdownIt({ html: true }).use(markdownItPrism)
         }
       });
+
+      // add source maps for debugging
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map';
+      }
     }
   },
 
