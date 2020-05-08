@@ -41,8 +41,9 @@
         <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a>
         dataset to recognize single digit numeric input. This model has an
         approximately 0.89% error rate on the test set, meaning it
-        <em>should</em> get most handwriting input correct. (insert disclaimer
-        here)
+        <em>should</em> get most handwriting input correct. Note that since the
+        training data is focused specifically on handwriting, it may have a
+        higher error rate for those of you drawing with a mouse.
       </p>
       <p>
         For more information, check out my
