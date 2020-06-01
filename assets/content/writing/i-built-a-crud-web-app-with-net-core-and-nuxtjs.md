@@ -13,14 +13,17 @@ I recently had the opportunity to create a full-stack CRUD application around th
   - Clients can browse available apartments in a list and on a map.
   - Realtors can additionally browse occupied apartments as well as CRUD all apartment data.
   - Admins can CRUD all user data.
+- Appropriate authentication/authorization on both the frontend and the APIs.
+
+Pretty simple, right? Actually making it took longer than I thought it would, but having done it once I could spin up a new CRUD app in just a couple hours.
 
 ## Why build this?
 
 I've written full stack applications before, but I wanted something I could put in my portfolio while getting up to speed with some of the latest technologies, including .NET Core and a new JavaScript framework.
 
-Astute readers will note that I have already created [the site you are currently reading](/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1) using Nuxt.js. However, I had not yet used it in a true full-stack application, and so I wanted some more practice with it.
+Astute readers will note that I have already used Nuxt.js in creating [the site you are currently reading](/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1). However, I had not yet used it in a true full-stack application, and so I wanted some more practice with it.
 
-## Review of the Tech Stack
+## A Review of the Tech Stack
 
 Technically, this project is divided into three parts:
 
@@ -58,8 +61,8 @@ Overall, SQL Server is still a SQL database. If you are familiar with MySQL or P
 - Role-based Authorization in Nuxt.js Auth with custom middleware
 - Setting up the Vuex store in Nuxt.js for basic CRUD operations
 - Using nuxt-gmaps to easily plug into the Google Maps API
-- Using AutoMapper to hide passwords in the API
 - Mobile-friendly responsive design using Vuetify
+- Using C# AutoMapper to hide passwords in the API
 - Setting up unit testing for .NET Core with xUnit and Moq
 - [Salting and hashing](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-3.1) passwords in the API before storage in the database.
 
