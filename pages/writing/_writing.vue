@@ -14,12 +14,56 @@ import '~/assets/css/prism-vsc-dark-plus.css';
 export default {
   head() {
     return {
-      title: 'Henry Writing | ' + this.title,
+      title: this.seoTitle,
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: this.description
+        },
+        {
+          property: 'og:title',
+          content: this.title
+        },
+        {
+          property: 'og:description',
+          content: this.description
+        },
+        {
+          property: 'og:url',
+          content: `https://henryjin.dev${this.$route.path}`
+        },
+        {
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        {
+          name: 'twitter:domain',
+          value: 'henryjin.dev'
+        },
+        {
+          name: 'twitter:creator',
+          value: 'https://twitter.com/henryjin'
+        },
+        {
+          name: 'twitter:label1',
+          value: 'Published on'
+        },
+        {
+          name: 'twitter:data1',
+          value: this.prettyDateString
+        },
+        {
+          name: 'twitter:label2',
+          value: 'Reading Time'
+        },
+        {
+          name: 'twitter:data2',
+          value: '5 minutes'
         }
       ]
     };
@@ -28,7 +72,9 @@ export default {
     return {
       post: null,
       title: null,
-      description: null
+      seoTitle: null,
+      description: null,
+      prettyDateString: null
     };
   },
   created() {
@@ -36,7 +82,15 @@ export default {
 
     this.post = markdown.vue.component;
     this.title = markdown.attributes.title;
+    this.seoTitle = 'Henry Writing | ' + this.title;
     this.description = markdown.attributes.description;
+    this.prettyDateString = new Date(
+      markdown.attributes.date
+    ).toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
   }
 };
 </script>
