@@ -14,19 +14,44 @@ I recently had the opportunity to create a full-stack CRUD application around th
   - Realtors can additionally browse occupied apartments as well as CRUD all apartment data.
   - Admins can CRUD all user data.
 
+## Why build this?
+
+I've written full stack applications before, but I wanted something I could put in my portfolio while getting up to speed with some of the latest technologies, including .NET Core and a new JavaScript framework.
+
+Astute readers will note that I have already created [the site you are currently reading](/writing/making-a-next-level-website-with-nuxtjs-vue-markdown-and-netlify-part-1) using Nuxt.js. However, I had not yet used it in a true full-stack application, and so I wanted some more practice with it.
+
+## Review of the Tech Stack
+
 Technically, this project is divided into three parts:
 
 ### Frontend
 
-The frontend is a Nuxt.js-based Single Page Application (SPA). Nuxt.js is a Vue.js framework which allows for a convention-based approach to Vue.js development. Additionally, Nuxt.js provides an easy upgrade path from SPA to Server-Side Rendering or Static Site Generation.
+The frontend is a [Nuxt.js](https://nuxtjs.org/)-based Single Page Application (SPA). Nuxt.js is a Vue.js framework which allows for a convention-based approach to Vue.js development. Additionally, Nuxt.js provides an easy upgrade path from SPA to Server-Side Rendering or Static Site Generation.
+
+I am a fan of Nuxt and how it both adds additional features on the rendering side while making the development experience faster via its conventions. Occasionally there will be an issue due to a lack of documentation, but this should continue to get better with time.
 
 ### REST APIs
 
-The APIs were RESTfully written using .NET Core 3.1 and were developed in Visual Studio 2019.
+The APIs were RESTfully written in C# using .NET Core 3.1 and were developed in Visual Studio 2019. With regards to security and identity, [Authentication](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-3.1) is handled using a JSON Web Token (JWT) bearer scheme. Authorization is [role-based](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-3.1).
+
+Compared to working on Nuxt (or really any Javascript framework), the development experience is actually quite different. On the plus side, official documentation and packages are significantly more fleshed out than your standard npm package. This both makes it easier to get up to speed and makes bug resolution faster. Microsoft is doing an excellent job supporting .NET. They historically have had a bad reputation among web developers, but they have made huge strides in the past decade. Check out the following:
+
+- .NET Core is [open source](https://github.com/dotnet/core)
+- Microsoft [owns and supports GitHub](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/)
+- [Visual Studio Code](https://code.visualstudio.com/) is one of the best code editors out there
+
+All this is evidence (albeit anecdotal) which shows that Microsoft is a significant contributor to the overall development community and should not be ignored.
+
+A small negative is that there is not as much flexibility in terms of IDE. While the [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/) is definitely functional and makes it _possible_ to develop using your IDE/OS of choice, it still feels like a second class citizen. [Visual Studio](https://visualstudio.microsoft.com/) is still the preferred IDE and the examples in the documentation reflect this.
 
 ### Backend
 
-The database is a SQL Server database. Schema and setup is contained in a Visual Studio database project.
+The database is a SQL Server database. Schema and setup is contained in a Visual Studio database project. There are two basic types of objects:
+
+- Apartments
+- Users
+
+For users, passwords are being [salted and hashed](https://docs.microsoft.com/en-us/aspnet/core/security/data-protection/consumer-apis/password-hashing?view=aspnetcore-3.1) by the API before being stored in the database.
 
 ## Review
 
