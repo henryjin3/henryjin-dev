@@ -90,7 +90,7 @@ export default {
 
 Here, we pull the appropriate Markdown file. Thanks to the loader, it has already had the FrontMatter processed and HTML generated, so all we need to do is pull out that information and make it accessible to the template.
 
-Note that the URL setup here is assumed to be `<your website>/writing/<your post>`. If you have a different you wish to have, adjust accordingly.
+Note that the URL setup here is assumed to be `<your website>/writing/<your post>`. If you have a different URL you wish to have, adjust accordingly.
 
 At this point, you should be able to see your post! Go check it out! We still don't have a way to access a list of pages, though, so let's set that up once you're ready.
 
