@@ -1,6 +1,6 @@
 ---
 title: A Full Stack Dev's First Impressions of the Salesforce Platform, Part 1
-date: 2020-09-03T00:00:00.000Z
+date: 2020-09-09T00:00:00.000Z
 description: What are all these Salesforce Developer jobs for anyways?
 ---
 
@@ -51,4 +51,4 @@ Still, as a developer, it’s difficult to get around the feeling that since I l
 
 ## Review and Conclusion
 
-So far, we’ve gained a basic understanding of the relationship between Salesforce, the Salesforce platform, and what it can offer for business users in terms of no/low-code customization. In Part 2, I’ll take a deeper look at what the Salesforce platform can offer developers and whether full-stack developers should make the leap over to become Salesforce developers.
+So far, we’ve gained a basic understanding of the relationship between Salesforce, the Salesforce platform, and what it can offer for business users in terms of no/low-code customization. In [Part 2](/writing/a-full-stack-devs-first-impressions-of-the-salesforce-platform-part-2), I’ll take a deeper look at what the Salesforce platform can offer developers and whether full-stack developers should make the leap over to become Salesforce developers.
