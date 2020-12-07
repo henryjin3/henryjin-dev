@@ -110,7 +110,7 @@ Finally, let’s explore slow transactions.
 
 ![slow-transactions](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/slow-transactions.jpg)
 
-#### What is it?
+#### What are they?
 
 Any transaction which takes a long amount of time. Naturally, “long” can be relative depending on the application and type of transaction.
 
