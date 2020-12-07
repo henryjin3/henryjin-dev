@@ -4,7 +4,7 @@ date: 2020-12-07T00:00:00.000Z
 description: You finally went live, congratulations! Now what?
 ---
 
-![hero](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/hero.png)
+![hero](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/hero.jpg)
 
 > You finally went live, congratulations! Now what?
 
@@ -108,7 +108,7 @@ Additionally, take a look at the top exception types and do some basic triage. I
 
 Finally, let’s explore slow transactions.
 
-![slow-transactions](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/slow-transactions.png)
+![slow-transactions](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/slow-transactions.jpg)
 
 #### What is it?
 
@@ -132,7 +132,7 @@ This is the last of the three metrics we'll look at in this article. Before I co
 
 ## Proactive Monitoring versus Reactive Fire-Fighting
 
-![firefighting](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/firefighting.png)
+![firefighting](~/assets/content/writing/key-application-metrics-and-monitoring-for-developers/firefighting.jpg)
 
 As a developer, it's all too easy to fall into the habit of what I call **reactive firefighting**, or responding only or primarily to reported issues or bugs. These issues are easy to prioritize, as it is clear that a user is already experiencing an issue or downtime. However, while you are busy fighting the fire, the fire is continuing to damage application downtime or cause some other issue.
 
