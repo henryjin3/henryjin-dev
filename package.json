@@ -34,7 +34,7 @@
     "frontmatter-markdown-loader": "^3.6.2",
     "markdown-it": "^12.0.4",
     "markdown-it-prism": "^2.0.5",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^2.0.0"
