@@ -14,13 +14,14 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.14.12",
+    "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",
     "@mdi/js": "^5.0.45",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/vuetify": "^1.0.0",
+    "@nuxtjs/vuetify": "^1.11.3",
     "@vue/test-utils": "^1.0.0-beta.27",
     "ava": "^3.0.0",
     "babel-eslint": "^10.0.1",

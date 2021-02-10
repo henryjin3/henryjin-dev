@@ -2,9 +2,9 @@
   <v-app dark>
     <Navbar />
 
-    <v-content>
+    <v-main>
       <nuxt />
-    </v-content>
+    </v-main>
     <Footer />
   </v-app>
 </template>
