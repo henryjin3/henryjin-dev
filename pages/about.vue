@@ -43,7 +43,7 @@
 
 <script>
 export default {
-  name: 'about',
+  name: 'About',
   head() {
     return {
       title: 'About Henry'

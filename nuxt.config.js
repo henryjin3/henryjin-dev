@@ -1,5 +1,5 @@
-import colors from 'vuetify/es5/util/colors';
 import path from 'path';
+import colors from 'vuetify/es5/util/colors';
 import FMMode from 'frontmatter-markdown-loader/mode';
 
 export default {

@@ -12,6 +12,15 @@
 import '~/assets/css/prism-vsc-dark-plus.css';
 
 export default {
+  data() {
+    return {
+      post: null,
+      title: null,
+      seoTitle: null,
+      description: null,
+      prettyDateString: null
+    };
+  },
   head() {
     return {
       title: this.seoTitle,
@@ -66,15 +75,6 @@ export default {
           value: '5 minutes'
         }
       ]
-    };
-  },
-  data() {
-    return {
-      post: null,
-      title: null,
-      seoTitle: null,
-      description: null,
-      prettyDateString: null
     };
   },
   created() {

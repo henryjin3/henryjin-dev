@@ -62,18 +62,6 @@ const MODEL_INPUT_SIZE = 28;
 const APPROX_IMAGE_MULTIPLIER = 10;
 
 export default {
-  head() {
-    return {
-      title: 'Henry | ' + this.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.description
-        }
-      ]
-    };
-  },
   data() {
     return {
       isPainting: false,
@@ -88,8 +76,20 @@ export default {
         'A browser-based handwriting recognizer using deep learning and TensorFlow.js.'
     };
   },
+  head() {
+    return {
+      title: 'Henry | ' + this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ]
+    };
+  },
   mounted() {
-    //load tensorflow script only for this component
+    // load tensorflow script only for this component
     const tensorflow = document.createElement('script');
     tensorflow.setAttribute(
       'src',
@@ -97,20 +97,20 @@ export default {
     );
     document.head.appendChild(tensorflow);
 
-    //set the canvas size
+    // set the canvas size
     this.$refs.number_painter.width = parseInt(
       getComputedStyle(this.$refs.paint).getPropertyValue('width')
     );
     this.$refs.number_painter.height = this.$refs.number_painter.width;
 
-    //set up painter
+    // set up painter
     this.paintContext = this.$refs.number_painter.getContext('2d');
     this.paintContext.strokeStyle = 'white';
     this.paintContext.lineJoin = 'round';
     this.paintContext.lineCap = 'round';
     this.paintContext.lineWidth = 50;
 
-    //set up painter for image approximation
+    // set up painter for image approximation
     this.$refs.approx_painter.width =
       MODEL_INPUT_SIZE * APPROX_IMAGE_MULTIPLIER;
     this.$refs.approx_painter.height =
@@ -118,7 +118,7 @@ export default {
     this.approxContext = this.$refs.approx_painter.getContext('2d');
   },
   methods: {
-    //much of the code is derived from https://github.com/carlos-aguayo/carlos-aguayo.github.io/blob/master/tfjs.html
+    // much of the code is derived from https://github.com/carlos-aguayo/carlos-aguayo.github.io/blob/master/tfjs.html
     startPaint(e) {
       this.isPainting = true;
       this.paintContext.beginPath();
@@ -168,8 +168,8 @@ export default {
         MODEL_INPUT_SIZE
       ).data;
 
-      var input = [];
-      for (var i = 0; i < data.length; i += 4) {
+      const input = [];
+      for (let i = 0; i < data.length; i += 4) {
         input.push(data[i + 2] / 255); // since it's all grayscale, we don't care about RGBA
       }
 
@@ -187,16 +187,16 @@ export default {
 
       for (let y = 0; y < MODEL_INPUT_SIZE; y++) {
         for (let x = 0; x < MODEL_INPUT_SIZE; x++) {
-          let block = ctx.getImageData(
+          const block = ctx.getImageData(
             x * APPROX_IMAGE_MULTIPLIER,
             y * APPROX_IMAGE_MULTIPLIER,
             APPROX_IMAGE_MULTIPLIER,
             APPROX_IMAGE_MULTIPLIER
           );
-          let newVal = 255 * input[y * MODEL_INPUT_SIZE + x];
+          const newVal = 255 * input[y * MODEL_INPUT_SIZE + x];
 
           for (
-            var i = 0;
+            let i = 0;
             i < 4 * APPROX_IMAGE_MULTIPLIER * APPROX_IMAGE_MULTIPLIER;
             i += 4
           ) {
@@ -215,13 +215,16 @@ export default {
     },
     async predict(input) {
       if (!this.model) {
-        //clear up TensorFlow since during hot reloading it's still there
+        // clear up TensorFlow since during hot reloading it's still there
+        // eslint-disable-next-line no-undef
         tf.disposeVariables();
 
+        // eslint-disable-next-line no-undef
         this.model = await tf.loadLayersModel('/mnist/model.json');
       }
       let scores = await this.model
         .predict([
+          // eslint-disable-next-line no-undef
           tf.tensor(input).reshape([1, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE, 1])
         ])
         .array();

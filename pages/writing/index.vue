@@ -29,18 +29,6 @@
 
 <script>
 export default {
-  head() {
-    return {
-      title: 'Henry | Writing',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: "All of Henry's writing"
-        }
-      ]
-    };
-  },
   async asyncData() {
     const path = require('path');
     const context = await require.context(
@@ -57,11 +45,11 @@ export default {
     return {
       posts: posts
         .map((post) => {
-          //need to exclude the Vue component bc we're using the asyncData method
+          // need to exclude the Vue component bc we're using the asyncData method
           post.vue = null;
           return {
             ...post,
-            //add in the pretty date
+            // add in the pretty date
             prettyDateString: new Date(post.attributes.date).toLocaleDateString(
               undefined,
               {
@@ -73,9 +61,21 @@ export default {
           };
         })
         .sort(
-          //sort by date in descending order
+          // sort by date in descending order
           (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
         )
+    };
+  },
+  head() {
+    return {
+      title: 'Henry | Writing',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: "All of Henry's writing"
+        }
+      ]
     };
   }
 };
