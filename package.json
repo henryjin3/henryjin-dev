@@ -4,8 +4,7 @@
   "author": "Henry",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
+    "dev": "nuxt dev",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -14,7 +13,8 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.14.12",
+    "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",

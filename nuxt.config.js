@@ -3,7 +3,7 @@ import path from 'path';
 import FMMode from 'frontmatter-markdown-loader/mode';
 
 export default {
-  mode: 'universal',
+  target: 'static',
   server: {
     host: '0.0.0.0'
   },
