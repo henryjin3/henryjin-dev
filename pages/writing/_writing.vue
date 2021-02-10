@@ -18,7 +18,7 @@ export default {
       title: null,
       seoTitle: null,
       description: null,
-      prettyDateString: null
+      prettyDateString: null,
     };
   },
   head() {
@@ -28,53 +28,53 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.description
+          content: this.description,
         },
         {
           property: 'og:title',
-          content: this.title
+          content: this.title,
         },
         {
           property: 'og:description',
-          content: this.description
+          content: this.description,
         },
         {
           property: 'og:url',
-          content: `https://henryjin.dev${this.$route.path}`
+          content: `https://henryjin.dev${this.$route.path}`,
         },
         {
           property: 'og:type',
-          content: 'article'
+          content: 'article',
         },
         {
           name: 'twitter:card',
-          content: 'summary_large_image'
+          content: 'summary_large_image',
         },
         {
           name: 'twitter:domain',
-          value: 'henryjin.dev'
+          value: 'henryjin.dev',
         },
         {
           name: 'twitter:creator',
-          value: 'https://twitter.com/henryjin'
+          value: 'https://twitter.com/henryjin',
         },
         {
           name: 'twitter:label1',
-          value: 'Published on'
+          value: 'Published on',
         },
         {
           name: 'twitter:data1',
-          value: this.prettyDateString
+          value: this.prettyDateString,
         },
         {
           name: 'twitter:label2',
-          value: 'Reading Time'
+          value: 'Reading Time',
         },
         {
           name: 'twitter:data2',
-          value: '5 minutes'
-        }
-      ]
+          value: '5 minutes',
+        },
+      ],
     };
   },
   created() {
@@ -89,9 +89,9 @@ export default {
     ).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'short',
-      day: 'numeric'
+      day: 'numeric',
     });
-  }
+  },
 };
 </script>
 

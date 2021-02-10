@@ -4,9 +4,7 @@
       <v-col class="pa-2">
         <strong>&copy;{{ new Date().getFullYear() }}</strong
         ><br />
-        <n-link to="/">
-          Henry Jin
-        </n-link>
+        <n-link to="/"> Henry Jin </n-link>
       </v-col>
       <v-col class="pa-2">
         <strong> Social</strong><br />
@@ -30,9 +28,9 @@ export default {
   name: 'Footer',
   data() {
     return {
-      githubIcon: mdiGithub
+      githubIcon: mdiGithub,
     };
-  }
+  },
 };
 </script>
 

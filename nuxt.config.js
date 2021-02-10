@@ -5,7 +5,7 @@ import FMMode from 'frontmatter-markdown-loader/mode';
 export default {
   target: 'static',
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
   },
   /*
    ** Headers of the page
@@ -13,9 +13,9 @@ export default {
   head: {
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
   /*
    ** Customize the progress-bar color
@@ -43,7 +43,7 @@ export default {
    */
   vuetify: {
     icons: {
-      iconfont: 'mdiSvg'
+      iconfont: 'mdiSvg',
     },
     theme: {
       dark: true,
@@ -56,10 +56,10 @@ export default {
           // warning: colors.amber.base,
           // error: colors.deepOrange.accent4,
           // success: colors.green.accent3
-          anchor: colors.orange.base
-        }
-      }
-    }
+          anchor: colors.orange.base,
+        },
+      },
+    },
   },
   /*
    ** Build configuration
@@ -78,17 +78,17 @@ export default {
         options: {
           mode: [FMMode.VUE_COMPONENT],
           vue: {
-            root: 'markdown-body'
+            root: 'markdown-body',
           },
-          markdownIt: markdownIt({ html: true }).use(markdownItPrism)
-        }
+          markdownIt: markdownIt({ html: true }).use(markdownItPrism),
+        },
       });
 
       // add source maps for debugging
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map';
       }
-    }
+    },
   },
 
   // create dynamic routes for static site
@@ -97,9 +97,9 @@ export default {
       const fs = require('fs');
       return fs.readdirSync('./assets/content/writing').map((file) => {
         return {
-          route: `/writing/${path.parse(file).name}`
+          route: `/writing/${path.parse(file).name}`,
         };
       });
-    }
-  }
+    },
+  },
 };

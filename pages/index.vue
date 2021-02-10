@@ -26,11 +26,11 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Hello, my name is Henry. I make software better.'
-        }
-      ]
+          content: 'Hello, my name is Henry. I make software better.',
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

@@ -39,7 +39,7 @@ export default {
     const posts = await context.keys().map((key) => {
       return {
         ...context(key),
-        path: `/writing/${path.basename(key, '.md')}`
+        path: `/writing/${path.basename(key, '.md')}`,
       };
     });
     return {
@@ -55,15 +55,15 @@ export default {
               {
                 year: 'numeric',
                 month: 'short',
-                day: 'numeric'
+                day: 'numeric',
               }
-            )
+            ),
           };
         })
         .sort(
           // sort by date in descending order
           (a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)
-        )
+        ),
     };
   },
   head() {
@@ -73,11 +73,11 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: "All of Henry's writing"
-        }
-      ]
+          content: "All of Henry's writing",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

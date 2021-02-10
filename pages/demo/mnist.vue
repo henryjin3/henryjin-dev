@@ -73,7 +73,7 @@ export default {
       model: null,
       title: 'Handwritten Number Recognition: A Machine Learning Demo',
       description:
-        'A browser-based handwriting recognizer using deep learning and TensorFlow.js.'
+        'A browser-based handwriting recognizer using deep learning and TensorFlow.js.',
     };
   },
   head() {
@@ -83,9 +83,9 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.description
-        }
-      ]
+          content: this.description,
+        },
+      ],
     };
   },
   mounted() {
@@ -225,7 +225,7 @@ export default {
       let scores = await this.model
         .predict([
           // eslint-disable-next-line no-undef
-          tf.tensor(input).reshape([1, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE, 1])
+          tf.tensor(input).reshape([1, MODEL_INPUT_SIZE, MODEL_INPUT_SIZE, 1]),
         ])
         .array();
       scores = scores[0];
@@ -252,14 +252,14 @@ export default {
       if (touch) {
         newParams = {
           clientX: touch.clientX,
-          clientY: touch.clientY
+          clientY: touch.clientY,
         };
       }
       this.$refs.number_painter.dispatchEvent(
         new MouseEvent(eventString, newParams)
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

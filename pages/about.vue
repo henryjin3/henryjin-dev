@@ -46,9 +46,9 @@ export default {
   name: 'About',
   head() {
     return {
-      title: 'About Henry'
+      title: 'About Henry',
     };
-  }
+  },
 };
 </script>
 
